@@ -19,27 +19,16 @@
   
           <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 ms-3">
             <li><a href="/" class="nav-link px-2">หน้าหลัก</a></li>
-            <li><a href="/" class="nav-link px-2">งานที่ต้องไปบริการ</a></li>
+            <button type="button" class="btn btn-primary ms-3 me-3">
+              งานที่ต้องไปเซอร์วิส <span class="badge badge-light">4</span>
+            </button>
             <li><a href="/" class="nav-link px-2">เพิ่มลูกค้าใหม่</a></li>
             <li><a href="/" class="nav-link px-2">เพิ่มหน้างานใหม่</a></li>
           </ul>
   
-          <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 d-flex" role="search">
+          <form class="col-12 col-lg-auto mb-3 mb-lg-0 d-flex" role="search">
             <input type="search" class="form-control ms-2" placeholder="Search..." aria-label="Search">
           </form>
-  
-          <div class="dropdown text-end">
-            <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
-            </a>
-            <ul class="dropdown-menu text-small">
-              <li><a class="dropdown-item" href="#">New project...</a></li>
-              <li><a class="dropdown-item" href="#">Settings</a></li>
-              <li><a class="dropdown-item" href="#">Profile</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Sign out</a></li>
-            </ul>
-          </div>
         </div>
       </div>
     </header>
@@ -50,8 +39,8 @@
           <tr>
             <th>ลูกค้า</th>
             <th>เบอร์โทร</th>
-            <th class="text-center">หน้างานทั้งหมด</th>
-            <th class="text-center">Position</th>
+            <th class="text-center">หน้างาน(พืันที่)</th>
+            <th class="text-center">เซอร์วิส(ครั้ง)</th>
             <th class="text-center">Actions</th>
           </tr>
         </thead>
@@ -59,7 +48,7 @@
           <tr>
             <td>
               <div class="d-flex align-items-center">
-                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                <img src="static/icon/user.png" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
                 <div class="ms-3 d-flex flex-column">
                   <a href=""><p class="fw-bold mb-0">John Doe(John)</p></a>
                   <p class="text-muted">john.doe@gmail.com</p>
@@ -73,7 +62,7 @@
               <span>5</span>
             </td>
             <td class="text-center">
-              <span>Active</span>
+              <span>2</span>
             </td>
             <td class="text-center">
               <button type="button" class="btn btn-link btn-sm btn-rounded">แก้ไขข้อมูล</button>
@@ -82,7 +71,7 @@
           <tr>
             <td>
               <div class="d-flex align-items-center">
-                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                <img src="static/icon/user.png" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
                 <div class="ms-3 d-flex flex-column">
                   <a href=""><p class="fw-bold mb-0">John Doe(John)</p></a>
                   <p class="text-muted">john.doe@gmail.com</p>
@@ -96,7 +85,7 @@
               <span>5</span>
             </td>
             <td class="text-center">
-              <span>Active</span>
+              <span>2</span>
             </td>
             <td class="text-center">
               <button type="button" class="btn btn-link btn-sm btn-rounded">แก้ไขข้อมูล</button>
@@ -105,7 +94,7 @@
           <tr>
             <td>
               <div class="d-flex align-items-center">
-                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                <img src="static/icon/user.png" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
                 <div class="ms-3 d-flex flex-column">
                   <a href=""><p class="fw-bold mb-0">John Doe(John)</p></a>
                   <p class="text-muted">john.doe@gmail.com</p>
@@ -119,7 +108,7 @@
               <span>5</span>
             </td>
             <td class="text-center">
-              <span>Active</span>
+              <span>2</span>
             </td>
             <td class="text-center">
               <button type="button" class="btn btn-link btn-sm btn-rounded">แก้ไขข้อมูล</button>
@@ -128,7 +117,7 @@
           <tr>
             <td>
               <div class="d-flex align-items-center">
-                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                <img src="static/icon/user.png" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
                 <div class="ms-3 d-flex flex-column">
                   <a href=""><p class="fw-bold mb-0">John Doe(John)</p></a>
                   <p class="text-muted">john.doe@gmail.com</p>
@@ -142,7 +131,7 @@
               <span>5</span>
             </td>
             <td class="text-center">
-              <span>Active</span>
+              <span>2</span>
             </td>
             <td class="text-center">
               <button type="button" class="btn btn-link btn-sm btn-rounded">แก้ไขข้อมูล</button>
@@ -151,7 +140,7 @@
           <tr>
             <td>
               <div class="d-flex align-items-center">
-                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                <img src="static/icon/user.png" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
                 <div class="ms-3 d-flex flex-column">
                   <a href=""><p class="fw-bold mb-0">John Doe(John)</p></a>
                   <p class="text-muted">john.doe@gmail.com</p>
@@ -165,122 +154,7 @@
               <span>5</span>
             </td>
             <td class="text-center">
-              <span>Active</span>
-            </td>
-            <td class="text-center">
-              <button type="button" class="btn btn-link btn-sm btn-rounded">แก้ไขข้อมูล</button>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="d-flex align-items-center">
-                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
-                <div class="ms-3 d-flex flex-column">
-                  <a href=""><p class="fw-bold mb-0">John Doe(John)</p></a>
-                  <p class="text-muted">john.doe@gmail.com</p>
-                </div>
-              </div>
-            </td>
-            <td>
-              <p class="fw-normal mb-0">000-111-2222</p>
-            </td>
-            <td class="text-center">
-              <span>5</span>
-            </td>
-            <td class="text-center">
-              <span>Active</span>
-            </td>
-            <td class="text-center">
-              <button type="button" class="btn btn-link btn-sm btn-rounded">แก้ไขข้อมูล</button>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="d-flex align-items-center">
-                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
-                <div class="ms-3 d-flex flex-column">
-                  <a href=""><p class="fw-bold mb-0">John Doe(John)</p></a>
-                  <p class="text-muted">john.doe@gmail.com</p>
-                </div>
-              </div>
-            </td>
-            <td>
-              <p class="fw-normal mb-0">000-111-2222</p>
-            </td>
-            <td class="text-center">
-              <span>5</span>
-            </td>
-            <td class="text-center">
-              <span>Active</span>
-            </td>
-            <td class="text-center">
-              <button type="button" class="btn btn-link btn-sm btn-rounded">แก้ไขข้อมูล</button>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="d-flex align-items-center">
-                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
-                <div class="ms-3 d-flex flex-column">
-                  <a href=""><p class="fw-bold mb-0">John Doe(John)</p></a>
-                  <p class="text-muted">john.doe@gmail.com</p>
-                </div>
-              </div>
-            </td>
-            <td>
-              <p class="fw-normal mb-0">000-111-2222</p>
-            </td>
-            <td class="text-center">
-              <span>5</span>
-            </td>
-            <td class="text-center">
-              <span>Active</span>
-            </td>
-            <td class="text-center">
-              <button type="button" class="btn btn-link btn-sm btn-rounded">แก้ไขข้อมูล</button>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="d-flex align-items-center">
-                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
-                <div class="ms-3 d-flex flex-column">
-                  <a href=""><p class="fw-bold mb-0">John Doe(John)</p></a>
-                  <p class="text-muted">john.doe@gmail.com</p>
-                </div>
-              </div>
-            </td>
-            <td>
-              <p class="fw-normal mb-0">000-111-2222</p>
-            </td>
-            <td class="text-center">
-              <span>5</span>
-            </td>
-            <td class="text-center">
-              <span>Active</span>
-            </td>
-            <td class="text-center">
-              <button type="button" class="btn btn-link btn-sm btn-rounded">แก้ไขข้อมูล</button>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="d-flex align-items-center">
-                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
-                <div class="ms-3 d-flex flex-column">
-                  <a href=""><p class="fw-bold mb-0">John Doe(John)</p></a>
-                  <p class="text-muted">john.doe@gmail.com</p>
-                </div>
-              </div>
-            </td>
-            <td>
-              <p class="fw-normal mb-0">000-111-2222</p>
-            </td>
-            <td class="text-center">
-              <span>5</span>
-            </td>
-            <td class="text-center">
-              <span>Active</span>
+              <span>2</span>
             </td>
             <td class="text-center">
               <button type="button" class="btn btn-link btn-sm btn-rounded">แก้ไขข้อมูล</button>
