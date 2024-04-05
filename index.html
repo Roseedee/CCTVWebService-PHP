@@ -10,193 +10,206 @@
   <script src="static/js/bootstrap.bundle.js"></script>
 </head>
 <body>
-    <header class="p-3 mb-3 border-bottom">
-      <div class="container">
-        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-          <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
-            <img src="static/image/logo-sm.png" height="50" alt="">
+  <header class="p-3 mb-3 border-bottom">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
+          <img src="static/image/logo-sm.png" height="50" alt="">
+        </a>
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 ms-3">
+          <li><a href="/" class="nav-link px-2">หน้าหลัก</a></li>
+          <button type="button" class="btn btn-primary ms-2 me-2">
+            งานที่ต้องไปเซอร์วิส <span class="badge badge-light">4</span>
+          </button>
+          <li><a href="/" class="nav-link px-2">เพิ่มลูกค้าใหม่</a></li>
+          <li><a href="/" class="nav-link px-2">เพิ่มหน้างานใหม่</a></li>
+        </ul>
+
+        <div class="dropdown text-end">
+          <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
           </a>
-  
-          <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 ms-3">
-            <li><a href="/" class="nav-link px-2">หน้าหลัก</a></li>
-            <button type="button" class="btn btn-primary ms-2 me-2">
-              งานที่ต้องไปเซอร์วิส <span class="badge badge-light">4</span>
-            </button>
-            <li><a href="/" class="nav-link px-2">เพิ่มลูกค้าใหม่</a></li>
-            <li><a href="/" class="nav-link px-2">เพิ่มหน้างานใหม่</a></li>
+          <ul class="dropdown-menu text-small">
+            <li><a class="dropdown-item" href="#">New project...</a></li>
+            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Sign out</a></li>
           </ul>
         </div>
       </div>
-    </header>
+    </div>
+  </header>
 
-    <div class="container">
-      <div class="d-flex justify-content-between pt-1 pb-1">
-        <div>
-          <button type="button" class="btn btn-primary">ลูกค้า</button>
-          <button type="button" class="btn btn-light">หน้างาน</button>
-        </div>
-        <div>
-          <div class="input-group mb-3">  
-            <input type="text" class="form-control" placeholder="ค้นหา" aria-label="Username" aria-describedby="basic-addon1">
-            <div class="input-group-append">
-              <button class="btn btn-outline-secondary" type="button">ไป</button>
-            </div>
+  <div class="container">
+    <div class="d-flex justify-content-between pt-1 pb-1">
+      <div>
+        <button type="button" class="btn btn-primary">ลูกค้า</button>
+        <button type="button" class="btn btn-light">หน้างาน</button>
+      </div>
+      <div>
+        <div class="input-group mb-3">  
+          <input type="text" class="form-control" placeholder="ค้นหา" aria-label="Username" aria-describedby="basic-addon1">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button">ไป</button>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="container my-table">
-      <table class="table align-middle mb-0 bg-white">
-        <thead>
-          <tr>
-            <th>ลูกค้า</th>
-            <th class="text-center">เบอร์โทร</th>
-            <th class="text-center">พื้นที่ติดตั้ง</th>
-            <th class="text-center">เซอร์วิส(ครั้ง)</th>
-            <th class="text-center">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <div class="d-flex align-items-center">
-                <img src="static/icon/user.png" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
-                <div class="ms-3 d-flex flex-column">
-                  <p class="m-0 text-muted" style="font-size: 12px;">0001</p>
-                  <a href=""><p class="fw-bold mb-0">John Doe(John)</p></a>
-                  <p class="text-muted m-0">john.doe@gmail.com</p>
-                </div>
+  <div class="container my-container">
+    <table class="table align-middle mb-0 bg-white">
+      <thead>
+        <tr>
+          <th>ลูกค้า</th>
+          <th class="text-center">เบอร์โทร</th>
+          <th class="text-center">พื้นที่ติดตั้ง</th>
+          <th class="text-center">เซอร์วิส(ครั้ง)</th>
+          <th class="text-center">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="d-flex align-items-center">
+              <img src="static/icon/user.png" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+              <div class="ms-3 d-flex flex-column">
+                <p class="m-0 text-muted" style="font-size: 12px;">0001</p>
+                <a href=""><p class="fw-bold mb-0">John Doe(John)</p></a>
+                <p class="text-muted m-0">john.doe@gmail.com</p>
               </div>
-            </td>
-            <td class="text-center">
-              <p class="fw-normal mb-0">000-111-2222(ชื่อลูกค้า)</p>
-            </td>
-            <td class="text-center">
-              <span>5</span>
-            </td>
-            <td class="text-center">
-              <span>2</span><br>
-              <i class="text-muted" style="font-size: 14px;">ล่าสุด 12-02-2567</i>
-            </td>
-            <td class="text-center">
-              <button type="button" class="btn btn-link btn-sm btn-rounded">แก้ไขข้อมูล</button>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="d-flex align-items-center">
-                <img src="static/icon/user.png" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
-                <div class="ms-3 d-flex flex-column">
-                  <p class="m-0 text-muted" style="font-size: 12px;">0002</p>
-                  <a href=""><p class="fw-bold mb-0">John Doe(John)</p></a>
-                  <p class="text-muted m-0">john.doe@gmail.com</p>
-                </div>
+            </div>
+          </td>
+          <td class="text-center">
+            <p class="fw-normal mb-0">000-111-2222(ชื่อลูกค้า)</p>
+          </td>
+          <td class="text-center">
+            <span>5</span>
+          </td>
+          <td class="text-center">
+            <span>2</span><br>
+            <i class="text-muted" style="font-size: 14px;">ล่าสุด 12-02-2567</i>
+          </td>
+          <td class="text-center">
+            <button type="button" class="btn btn-link btn-sm btn-rounded">แก้ไขข้อมูล</button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="d-flex align-items-center">
+              <img src="static/icon/user.png" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+              <div class="ms-3 d-flex flex-column">
+                <p class="m-0 text-muted" style="font-size: 12px;">0002</p>
+                <a href=""><p class="fw-bold mb-0">John Doe(John)</p></a>
+                <p class="text-muted m-0">john.doe@gmail.com</p>
               </div>
-            </td>
-            <td class="text-center">
-              <p class="fw-normal mb-0">000-111-2222(ชื่อลูกค้า)</p>
-            </td>
-            <td class="text-center">
-              <span>5</span>
-            </td>
-            <td class="text-center">
-              <span>2</span><br>
-              <i class="text-muted" style="font-size: 14px;">ล่าสุด 12-02-2567</i>
-            </td>
-            <td class="text-center">
-              <button type="button" class="btn btn-link btn-sm btn-rounded">แก้ไขข้อมูล</button>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="d-flex align-items-center">
-                <img src="static/icon/user.png" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
-                <div class="ms-3 d-flex flex-column">
-                  <p class="m-0 text-muted" style="font-size: 12px;">0003</p>
-                  <a href=""><p class="fw-bold mb-0">John Doe(John)</p></a>
-                  <p class="text-muted m-0">john.doe@gmail.com</p>
-                </div>
+            </div>
+          </td>
+          <td class="text-center">
+            <p class="fw-normal mb-0">000-111-2222(ชื่อลูกค้า)</p>
+          </td>
+          <td class="text-center">
+            <span>5</span>
+          </td>
+          <td class="text-center">
+            <span>2</span><br>
+            <i class="text-muted" style="font-size: 14px;">ล่าสุด 12-02-2567</i>
+          </td>
+          <td class="text-center">
+            <button type="button" class="btn btn-link btn-sm btn-rounded">แก้ไขข้อมูล</button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="d-flex align-items-center">
+              <img src="static/icon/user.png" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+              <div class="ms-3 d-flex flex-column">
+                <p class="m-0 text-muted" style="font-size: 12px;">0003</p>
+                <a href=""><p class="fw-bold mb-0">John Doe(John)</p></a>
+                <p class="text-muted m-0">john.doe@gmail.com</p>
               </div>
-            </td>
-            <td class="text-center">
-              <p class="fw-normal mb-0">000-111-2222(ชื่อลูกค้า)</p>
-            </td>
-            <td class="text-center">
-              <span>5</span>
-            </td>
-            <td class="text-center">
-              <span>2</span><br>
-              <i class="text-muted" style="font-size: 14px;">ล่าสุด 12-02-2567</i>
-            </td>
-            <td class="text-center">
-              <button type="button" class="btn btn-link btn-sm btn-rounded">แก้ไขข้อมูล</button>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="d-flex align-items-center">
-                <img src="static/icon/user.png" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
-                <div class="ms-3 d-flex flex-column">
-                  <p class="m-0 text-muted" style="font-size: 12px;">0004</p>
-                  <a href=""><p class="fw-bold mb-0">John Doe(John)</p></a>
-                  <p class="text-muted m-0">john.doe@gmail.com</p>
-                </div>
+            </div>
+          </td>
+          <td class="text-center">
+            <p class="fw-normal mb-0">000-111-2222(ชื่อลูกค้า)</p>
+          </td>
+          <td class="text-center">
+            <span>5</span>
+          </td>
+          <td class="text-center">
+            <span>2</span><br>
+            <i class="text-muted" style="font-size: 14px;">ล่าสุด 12-02-2567</i>
+          </td>
+          <td class="text-center">
+            <button type="button" class="btn btn-link btn-sm btn-rounded">แก้ไขข้อมูล</button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="d-flex align-items-center">
+              <img src="static/icon/user.png" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+              <div class="ms-3 d-flex flex-column">
+                <p class="m-0 text-muted" style="font-size: 12px;">0004</p>
+                <a href=""><p class="fw-bold mb-0">John Doe(John)</p></a>
+                <p class="text-muted m-0">john.doe@gmail.com</p>
               </div>
-            </td>
-            <td class="text-center">
-              <p class="fw-normal mb-0">000-111-2222(ชื่อลูกค้า)</p>
-            </td>
-            <td class="text-center">
-              <span>5</span>
-            </td>
-            <td class="text-center">
-              <span>2</span><br>
-              <i class="text-muted" style="font-size: 14px;">ล่าสุด 12-02-2567</i>
-            </td>
-            <td class="text-center">
-              <button type="button" class="btn btn-link btn-sm btn-rounded">แก้ไขข้อมูล</button>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="d-flex align-items-center">
-                <img src="static/icon/user.png" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
-                <div class="ms-3 d-flex flex-column">
-                  <p class="m-0 text-muted" style="font-size: 12px;">0005</p>
-                  <a href=""><p class="fw-bold mb-0">John Doe(John)</p></a>
-                  <p class="text-muted m-0">john.doe@gmail.com</p>
-                </div>
+            </div>
+          </td>
+          <td class="text-center">
+            <p class="fw-normal mb-0">000-111-2222(ชื่อลูกค้า)</p>
+          </td>
+          <td class="text-center">
+            <span>5</span>
+          </td>
+          <td class="text-center">
+            <span>2</span><br>
+            <i class="text-muted" style="font-size: 14px;">ล่าสุด 12-02-2567</i>
+          </td>
+          <td class="text-center">
+            <button type="button" class="btn btn-link btn-sm btn-rounded">แก้ไขข้อมูล</button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="d-flex align-items-center">
+              <img src="static/icon/user.png" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+              <div class="ms-3 d-flex flex-column">
+                <p class="m-0 text-muted" style="font-size: 12px;">0005</p>
+                <a href=""><p class="fw-bold mb-0">John Doe(John)</p></a>
+                <p class="text-muted m-0">john.doe@gmail.com</p>
               </div>
-            </td>
-            <td class="text-center">
-              <p class="fw-normal mb-0">000-111-2222(ชื่อลูกค้า)</p>
-            </td>
-            <td class="text-center">
-              <span>5</span>
-            </td>
-            <td class="text-center">
-              <span>2</span><br>
-              <i class="text-muted" style="font-size: 14px;">ล่าสุด 12-02-2567</i>
-            </td>
-            <td class="text-center">
-              <button type="button" class="btn btn-link btn-sm btn-rounded">แก้ไขข้อมูล</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+            </div>
+          </td>
+          <td class="text-center">
+            <p class="fw-normal mb-0">000-111-2222(ชื่อลูกค้า)</p>
+          </td>
+          <td class="text-center">
+            <span>5</span>
+          </td>
+          <td class="text-center">
+            <span>2</span><br>
+            <i class="text-muted" style="font-size: 14px;">ล่าสุด 12-02-2567</i>
+          </td>
+          <td class="text-center">
+            <button type="button" class="btn btn-link btn-sm btn-rounded">แก้ไขข้อมูล</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-    <footer class="py-3 my-4" style="justify-self: end;">
-      <ul class="nav align-items-center justify-content-center border-bottom pb-3 mb-3">
-        <img src="static/image/logo-sm.png" class="me-3" height="40" alt="">
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Service</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Pricing</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>  
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
-      </ul>
-      <p class="text-center text-body-secondary">© 2024 YALANETCOM</p>
-    </footer>
+  <footer class="py-3 my-4" style="justify-self: end;">
+    <ul class="nav align-items-center justify-content-center border-bottom pb-3 mb-3">
+      <img src="static/image/logo-sm.png" class="me-3" height="40" alt="">
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Service</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Pricing</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>  
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
+    </ul>
+    <p class="text-center text-body-secondary">© 2024 YALANETCOM</p>
+  </footer>
 </body>
 </html>
