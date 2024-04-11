@@ -9,7 +9,7 @@
   <link href="../static/css/view/main.css" rel="stylesheet">
 </head>
 <body onload="getPageHeight()">
-  <header class="p-3 mb-3 border-bottom"  id="header">
+  <header class="p-3 mb-3 border-bottom" id="header">
     <div class="container">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
         <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
@@ -17,7 +17,7 @@
         </a>
 
         <ul class="nav nav-pills col-12 col-lg-auto me-lg-auto justify-content-center ms-3">
-          <li class="nav-item"><a href="/" class="nav-link active">หน้าหลัก</a></li>
+          <li class="nav-item"><a href="/" class="nav-link">หน้าหลัก</a></li>
           <li class="nav-item"><a href="/template/new-user.html" class="nav-link">เพิ่มลูกค้าใหม่</a></li>
           <li class="nav-item"><a href="/" class="nav-link">เพิ่มหน้างานใหม่</a></li>
         </ul>
@@ -41,33 +41,21 @@
       </div>
     </div>
   </header>
-
-  <div class="container" id="my-container">
-    <div class="d-flex justify-content-between pt-1 pb-1">
-      <div>
-        <a href="/" class="btn btn-light me-1 btn-sm">ลูกค้า</ฟ>
-        <a href="/template/work-site.html" class="btn btn-primary btn-sm">หน้างาน</a>
-      </div>
-      <div>
-        <div class="input-group mb-3">  
-          <input type="text" class="form-control" placeholder="ค้นหา" aria-label="Username" aria-describedby="basic-addon1">
-          <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="button">ไป</button>
-          </div>
-        </div>
-      </div>
+  
+  <div class="container pt-2 pb-2">
+    <div class="d-flex justify-content-end">
+        <a href="" class="btn btn-primary btn-sm">เพิ่ม</a>
     </div>
   </div>
 
-  <div class="container my-container">
+  <div class="container" id="my-container">
     <table class="table align-middle mb-0 bg-white">
       <thead>
         <tr>
           <th>ลูกค้า</th>
           <th>หน้างาน</th>
-          <th class="text-center">ที่อยู่</th>
-          <th class="text-center">จำนวนกล้อง</th>
-          <th class="text-center">เซอร์วิส(ครั้ง)</th>
+          <th>ที่อยู่</th>
+          <th>ปัญหาที่ลูกค้าแจ้ง</th>
           <th class="text-center">สถานะ</th>
           <th class="text-center">Actions</th>
         </tr>
@@ -88,121 +76,20 @@
             <p class="m-0 text-muted" style="font-size: 12px;">0001</p>
             บ้าน
           </td>
-          <td class="text-center">
+          <td>
             <a href="">18.3170581,99.3986862</a>
           </td>
-          <td class="text-center">
-            16
+          <td>
+            กล้องหลังบ้านมองไม่เห็น
           </td>
-          <td class="text-center">
-            2
-          </td>
+          
           <td class="text-center">
             <div class="d-flex align-items-center justify-content-center">
               <div class="me-2" style="width: 5px; height: 5px; border-radius: 50%; background-color: yellow;"></div>อยู่ในประกัน
             </div>
           </td>
           <td class="text-center">
-            <button type="button" class="btn btn-link btn-sm btn-rounded">แก้ไขข้อมูล</button>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <div class="d-flex align-items-center">
-              <img src="../static/icon/user.png" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
-              <div class="ms-3 d-flex flex-column">
-                <p class="m-0 text-muted" style="font-size: 12px;">0001</p>
-                <a href=""><p class="fw-bold mb-0">John Doe(John)</p></a>
-                <p class="text-muted m-0">012-345-6789</p>
-              </div>
-            </div>
-          </td>
-          <td>
-            <p class="m-0 text-muted" style="font-size: 12px;">0001</p>
-            ร้านขายเสื้อ
-          </td>
-          <td class="text-center">
-            <a href="">18.3170581,99.3986862</a>
-          </td>
-          <td class="text-center">
-            4
-          </td>
-          <td class="text-center">
-            0
-          </td>
-          <td class="text-center">
-            <div class="d-flex align-items-center justify-content-center">
-              <div class="me-2" style="width: 5px; height: 5px; border-radius: 50%; background-color: red;"></div>หมดประกัน
-            </div>
-          </td>
-          <td class="text-center">
-            <button type="button" class="btn btn-link btn-sm btn-rounded">แก้ไขข้อมูล</button>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <div class="d-flex align-items-center">
-              <img src="../static/icon/user.png" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
-              <div class="ms-3 d-flex flex-column">
-                <p class="m-0 text-muted" style="font-size: 12px;">0002</p>
-                <a href=""><p class="fw-bold mb-0">Jack jacky(jack)</p></a>
-                <p class="text-muted m-0">012-345-6789</p>
-              </div>
-            </div>
-          </td>
-          <td>
-            <p class="m-0 text-muted" style="font-size: 12px;">0001</p>
-            ร้านขายมือถือ
-          </td>
-          <td class="text-center">
-            <a href="">18.3170581,99.3986862</a>
-          </td>
-          <td class="text-center">
-            8
-          </td>
-          <td class="text-center">
-            5
-          </td>
-          <td class="text-center">
-            <div class="d-flex align-items-center justify-content-center">
-              <div class="me-2" style="width: 5px; height: 5px; border-radius: 50%; background-color: red;"></div>หมดประกัน
-            </div>
-          </td>
-          <td class="text-center">
-            <button type="button" class="btn btn-link btn-sm btn-rounded">แก้ไขข้อมูล</button>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <div class="d-flex align-items-center">
-              <img src="../static/icon/user.png" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
-              <div class="ms-3 d-flex flex-column">
-                <p class="m-0 text-muted" style="font-size: 12px;">0002</p>
-                <a href=""><p class="fw-bold mb-0">Jack jacky(jack)</p></a>
-                <p class="text-muted m-0">012-345-6789</p>
-              </div>
-            </div>
-          </td>
-          <td>
-            <p class="m-0 text-muted" style="font-size: 12px;">0001</p>
-            บ้าน
-          </td>
-          <td class="text-center">
-            <a href="">18.3170581,99.3986862</a>
-          </td>
-          <td class="text-center">
-            16
-          </td>
-          <td class="text-center">
-            2
-          </td>
-          <td class="text-center">
-            <div class="d-flex align-items-center justify-content-center">
-              <div class="me-2" style="width: 5px; height: 5px; border-radius: 50%; background-color: yellow;"></div>อยู่ในประกัน
-            </div>
-          </td>
-          <td class="text-center">
-            <button type="button" class="btn btn-link btn-sm btn-rounded">แก้ไขข้อมูล</button>
+            <a class="btn btn-primary btn-sm btn-rounded">Service</a>
           </td>
         </tr>
         <tr>
@@ -220,22 +107,20 @@
             <p class="m-0 text-muted" style="font-size: 12px;">0001</p>
             บ้าน
           </td>
-          <td class="text-center">
+          <td>
             <a href="">18.3170581,99.3986862</a>
           </td>
-          <td class="text-center">
-            16
+          <td>
+            กล้องหลังบ้านมองไม่เห็น
           </td>
-          <td class="text-center">
-            2
-          </td>
+          
           <td class="text-center">
             <div class="d-flex align-items-center justify-content-center">
               <div class="me-2" style="width: 5px; height: 5px; border-radius: 50%; background-color: yellow;"></div>อยู่ในประกัน
             </div>
           </td>
           <td class="text-center">
-            <button type="button" class="btn btn-link btn-sm btn-rounded">แก้ไขข้อมูล</button>
+            <a class="btn btn-primary btn-sm btn-rounded">Service</a>
           </td>
         </tr>
         <tr>
@@ -253,22 +138,20 @@
             <p class="m-0 text-muted" style="font-size: 12px;">0001</p>
             บ้าน
           </td>
-          <td class="text-center">
+          <td>
             <a href="">18.3170581,99.3986862</a>
           </td>
-          <td class="text-center">
-            16
+          <td>
+            กล้องหลังบ้านมองไม่เห็น
           </td>
-          <td class="text-center">
-            2
-          </td>
+          
           <td class="text-center">
             <div class="d-flex align-items-center justify-content-center">
               <div class="me-2" style="width: 5px; height: 5px; border-radius: 50%; background-color: yellow;"></div>อยู่ในประกัน
             </div>
           </td>
           <td class="text-center">
-            <button type="button" class="btn btn-link btn-sm btn-rounded">แก้ไขข้อมูล</button>
+            <a class="btn btn-primary btn-sm btn-rounded">Service</a>
           </td>
         </tr>
         <tr>
@@ -286,22 +169,113 @@
             <p class="m-0 text-muted" style="font-size: 12px;">0001</p>
             บ้าน
           </td>
-          <td class="text-center">
+          <td>
             <a href="">18.3170581,99.3986862</a>
           </td>
-          <td class="text-center">
-            16
+          <td>
+            กล้องหลังบ้านมองไม่เห็น
           </td>
-          <td class="text-center">
-            2
-          </td>
+          
           <td class="text-center">
             <div class="d-flex align-items-center justify-content-center">
               <div class="me-2" style="width: 5px; height: 5px; border-radius: 50%; background-color: yellow;"></div>อยู่ในประกัน
             </div>
           </td>
           <td class="text-center">
-            <button type="button" class="btn btn-link btn-sm btn-rounded">แก้ไขข้อมูล</button>
+            <a class="btn btn-primary btn-sm btn-rounded">Service</a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="d-flex align-items-center">
+              <img src="../static/icon/user.png" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+              <div class="ms-3 d-flex flex-column">
+                <p class="m-0 text-muted" style="font-size: 12px;">0001</p>
+                <a href=""><p class="fw-bold mb-0">John Doe(John)</p></a>
+                <p class="text-muted m-0">012-345-6789</p>
+              </div>
+            </div>
+          </td>
+          <td>
+            <p class="m-0 text-muted" style="font-size: 12px;">0001</p>
+            บ้าน
+          </td>
+          <td>
+            <a href="">18.3170581,99.3986862</a>
+          </td>
+          <td>
+            กล้องหลังบ้านมองไม่เห็น
+          </td>
+          
+          <td class="text-center">
+            <div class="d-flex align-items-center justify-content-center">
+              <div class="me-2" style="width: 5px; height: 5px; border-radius: 50%; background-color: yellow;"></div>อยู่ในประกัน
+            </div>
+          </td>
+          <td class="text-center">
+            <a class="btn btn-primary btn-sm btn-rounded">Service</a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="d-flex align-items-center">
+              <img src="../static/icon/user.png" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+              <div class="ms-3 d-flex flex-column">
+                <p class="m-0 text-muted" style="font-size: 12px;">0001</p>
+                <a href=""><p class="fw-bold mb-0">John Doe(John)</p></a>
+                <p class="text-muted m-0">012-345-6789</p>
+              </div>
+            </div>
+          </td>
+          <td>
+            <p class="m-0 text-muted" style="font-size: 12px;">0001</p>
+            บ้าน
+          </td>
+          <td>
+            <a href="">18.3170581,99.3986862</a>
+          </td>
+          <td>
+            กล้องหลังบ้านมองไม่เห็น
+          </td>
+          
+          <td class="text-center">
+            <div class="d-flex align-items-center justify-content-center">
+              <div class="me-2" style="width: 5px; height: 5px; border-radius: 50%; background-color: yellow;"></div>อยู่ในประกัน
+            </div>
+          </td>
+          <td class="text-center">
+            <a class="btn btn-primary btn-sm btn-rounded">Service</a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="d-flex align-items-center">
+              <img src="../static/icon/user.png" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+              <div class="ms-3 d-flex flex-column">
+                <p class="m-0 text-muted" style="font-size: 12px;">0001</p>
+                <a href=""><p class="fw-bold mb-0">John Doe(John)</p></a>
+                <p class="text-muted m-0">012-345-6789</p>
+              </div>
+            </div>
+          </td>
+          <td>
+            <p class="m-0 text-muted" style="font-size: 12px;">0001</p>
+            บ้าน
+          </td>
+          <td>
+            <a href="">18.3170581,99.3986862</a>
+          </td>
+          <td>
+            กล้องหลังบ้านมองไม่เห็น
+          </td>
+          
+          <td class="text-center">
+            <div class="d-flex align-items-center justify-content-center">
+              <div class="me-2" style="width: 5px; height: 5px; border-radius: 50%; background-color: yellow;"></div>อยู่ในประกัน
+            </div>
+          </td>
+          <td class="text-center">
+            <a class="btn btn-primary btn-sm btn-rounded">Service</a>
           </td>
         </tr>
       </tbody>
