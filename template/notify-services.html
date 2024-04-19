@@ -16,15 +16,13 @@
           <img src="../static/image/logo-sm.png" height="45" alt="">
         </a>
 
-        <ul class="nav nav-pills col-12 col-lg-auto me-lg-auto justify-content-center ms-3">
+        <ul class="nav nav-pills col-12 col-lg-auto me-lg-auto justify-content-center ms-5">
           <li class="nav-item"><a href="/" class="nav-link">หน้าหลัก</a></li>
           <li class="nav-item"><a href="/template/new-user.html" class="nav-link">เพิ่มลูกค้าใหม่</a></li>
           <li class="nav-item"><a href="/" class="nav-link">เพิ่มหน้างานใหม่</a></li>
         </ul>
 
-        <a href="/template/notify-services.html" class="btn btn-info me-3 btn-sm">
-          แจ้งเตือน
-        </a>
+        <a href="/template/notify-services.html" class="btn btn-info me-3 btn-sm">แจ้งเตือน</a>
         
         <div class="dropdown text-end ms-2">
           <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
@@ -42,9 +40,15 @@
     </div>
   </header>
   
-  <div class="container pt-2 pb-2">
-    <div class="d-flex justify-content-end">
+  <div class="container my-container">
+    <div class="d-flex justify-content-between py-2">
+      <div class="d-flex align-items-center">
         <a href="" class="btn btn-primary btn-sm">เพิ่ม</a>
+      </div>
+      <form class="d-flex">
+        <input type="text" class="form-control me-2" placeholder="ค้นหา" aria-label="Username" aria-describedby="basic-addon1">
+        <button class="btn btn-outline-secondary" type="submit">ค้นหา</button>
+      </form>
     </div>
   </div>
 
@@ -282,7 +286,7 @@
     </table>
   </div>
 
-  <footer class="py-3 my-4" style="justify-self: end;" id="footer">
+  <footer class="mt-3">
     <ul class="nav align-items-center justify-content-center border-bottom pb-3 mb-3">
       <img src="../static/image/logo-sm.png" class="me-3" height="40" alt="">
       <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
