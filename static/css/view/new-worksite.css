@@ -13,19 +13,60 @@
     height: 100%;
     width: 120px;
     background-color: #f0f0f0;
+    border-radius: 5px;
 }
 
 .img-list {
+    display: flex;
     height: 100%;
     overflow: auto;
     overflow-y: hidden; /* Disable vertical scrolling */
     white-space: nowrap;
     scroll-behavior: smooth;
     margin-left: 10px;
-     
-    img {
+    
+    & .img-list-item {
         margin-right: 10px;
+        position: relative;
+        display: inline-block;
+        
+        img {
+            border-radius: 5px;
+            height: 100%;
+        }
+
+        & .img-btn-delete {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                width: 16px;
+                height: auto;
+            }
+
+        }
     }
+    
+    & .img-list-item-empty {
+        height: 100%;
+        margin-right: 10px;
+        width: 120px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5px;
+        background-color: rgb(250, 250, 250);
+        color: rgb(194, 194, 194);
+    }
+
 }
 
 .file-upload-label {
