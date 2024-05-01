@@ -98,3 +98,66 @@
         margin-right: 10px;
     }
 }
+
+.my-user-selector {
+    width: 100%;
+    border-radius: 5px;
+    max-height: 500px;
+    background-color: white;
+    padding: 10px;
+    padding-top: 5px;
+    border: 1px solid rgb(214, 214, 214);
+    box-shadow: 0px 3px 10px #cfcfcf;
+    margin-top: 5px;
+    
+
+    & .user-selector-item {
+        display: flex;
+        border-radius: 5px;
+        transition: 0.3s;
+        margin-top: 5px;
+
+        div {
+            display: flex;
+            padding: 5px 10px;
+        }
+        
+        & .about-user {
+            flex-grow: 1;
+            /* background-color: yellow; */
+            flex-direction: column;
+            justify-content: center;
+            align-items: start;
+
+            & .user-id {
+                font-size: 12px;
+            }
+        }
+
+        & .user-img {
+            /* background-color: gray; */
+            justify-content: end;
+            align-items: center;
+            width: 64px;
+            height: 64px;
+            padding: 5px;
+            margin: 0px;
+            
+            img {
+                border: 2px solid blue;
+                padding: 1px;
+                width: 100%;
+                border-radius: 50%;
+                height: 100%;
+            }
+
+        }
+
+    }
+
+    & .user-selector-item:hover {
+        background-color: rgb(235, 213, 255);
+        cursor: pointer;
+    }
+    
+}
