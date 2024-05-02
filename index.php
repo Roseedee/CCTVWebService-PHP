@@ -1,3 +1,13 @@
+<?php
+  require_once("./template/action/dbconnect.php");
+
+  $login_status = isset($_GET['login_error']) ? $_GET['login_error'] : 0;
+
+  if($login_status) {
+    echo "<script>alert('ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง')</script>";
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,29 +18,30 @@
   <link href="static/css/view/sign-in.css" rel="stylesheet">
   <link href="static/css/main.css" rel="stylesheet">
 </head>
-<body class="background"> 
+<body class="background">
+  <div class="login-error"></div>
   <div class="my-form">
      <div class="my-card pt-3 d-flex flex-column">
       <div class="d-flex justify-content-center">
           <img src="static/image/logo-sm.png" height="100">
       </div>
-      <form action="" class="p-3">
+      <form action="./template/action/login.php" class="p-3" method="POST">
           <div class="input-group mb-3">
-            <span class="input-group-text"><img src="/static/icon/user.png" width="32"></span>
+            <span class="input-group-text"><img src="./static/icon/user.png" width="32"></span>
             <div class="form-floating">
-              <input type="text" class="form-control" id="floatingInputGroup1" placeholder="ชื่อผู้ใช้">
-              <label for="floatingInputGroup1">Username</label>
+              <input type="text" class="form-control" id="username" name="username" placeholder="ชื่อผู้ใช้">
+              <label for="username">Username</label>
             </div>
           </div>
           <div class="input-group mb-3">
-            <span class="input-group-text"><img src="/static/icon/lock.png" width="32"></span>
+            <span class="input-group-text"><img src="./static/icon/lock.png" width="32"></span>
             <div class="form-floating">
-              <input type="password" class="form-control" id="floatingPassword" placeholder="รหัสผ่าน">
-              <label for="floatingPassword">Password</label>
+              <input type="password" class="form-control" id="password" name="password" placeholder="รหัสผ่าน">
+              <label for="password">Password</label>
             </div>
           </div>
           <div class="d-grid gap-2">
-            <button class="btn btn-primary btn-lg" type="button">เข้าสู่ระบบ</button>
+            <button class="btn btn-primary btn-lg" type="submit">เข้าสู่ระบบ</button>
           </div>
       </form>
      </div> 
