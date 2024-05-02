@@ -1,3 +1,7 @@
+<?php
+  
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,34 +66,41 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>
-            <div class="d-flex align-items-center">
-              <img src="../static/icon/user.png" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
-              <div class="ms-3 d-flex flex-column">
-                <p class="m-0 text-muted" style="font-size: 12px;">0001</p>
-                <a href=""><p class="fw-bold mb-0">John Doe(John)</p></a>
-                <p class="text-muted m-0">john.doe@gmail.com</p>
+        <?php
+          require_once("./action/load-users.php");
+          foreach ($customers as $customer) {
+        ?>
+          <tr>
+            <td>
+              <div class="d-flex align-items-center">
+                <img src="../static/icon/user.png" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                <div class="ms-3 d-flex flex-column">
+                  <p class="m-0 text-muted" style="font-size: 14px;"><?php echo $customer['user_id']; ?></p>
+                  <a href=""><p class="fw-bold mb-0"><?php echo $customer['name_lastname']; ?></p></a>
+                  <p class="m-0"><?php echo $customer['email']; ?></p>
+                </div>
               </div>
-            </div>
-          </td>
-          <td>
-            <p class="fw-normal mb-0">000-111-2222</p>
-          </td>
-          <td>
-            <p class="fw-normal mb-0">ยะลา ประเทศไทย</p>
-          </td>
-          <td class="text-center">
-            <span>5</span>
-          </td>
-          <td class="text-center">
-            <span>2</span><br>
-            <i class="text-muted" style="font-size: 14px;">ล่าสุด 12-02-2567</i>
-          </td>
-          <td class="text-center">
-            <button type="button" class="btn btn-link btn-sm btn-rounded">แก้ไขข้อมูล</button>
-          </td>
-        </tr>
+            </td>
+            <td>
+              <p class="fw-normal mb-0"><?php echo $customer['phone']; ?></p>
+            </td>
+            <td>
+              <p class="fw-normal mb-0"><?php echo $customer['address']; ?></p>
+            </td>
+            <td class="text-center">
+              <span><?php echo $customer['num_worksites'] ?></span>
+            </td>
+            <td class="text-center">
+              <span><?php echo $customer['num_services'] ?></span><br>
+              <i class="text-muted" style="font-size: 14px;">ล่าสุด <?php echo $customer['latest_service_date'] ?></i>
+            </td>
+            <td class="text-center">
+            <a class="btn btn-primary btn-sm btn-rounded">เพิ่มหน้างาน</a>
+            </td>
+          </tr>
+        <?php
+          }
+        ?>
       </tbody>
     </table>
   </div>
