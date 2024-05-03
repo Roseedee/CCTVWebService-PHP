@@ -1,9 +1,9 @@
 <?php
   require_once("./template/action/dbconnect.php");
 
-  $login_status = isset($_GET['login_error']) ? $_GET['login_error'] : 0;
+  $login_error = isset($_GET['login_error']) ? $_GET['login_error'] : 0;
 
-  if($login_status) {
+  if($login_error) {
     echo "<script>alert('ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง')</script>";
   }
 ?>
@@ -20,6 +20,7 @@
 </head>
 <body class="background">
   <div class="login-error"></div>
+  <div style="width: 100%; height: 20px; background-color: red;"></div>
   <div class="my-form">
      <div class="my-card pt-3 d-flex flex-column">
       <div class="d-flex justify-content-center">

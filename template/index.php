@@ -1,4 +1,10 @@
 <?php
+  require_once("./action/load-users.php");
+
+  if(!isset($_SESSION['user_id'])) {
+    echo "<script>alert('กรุณาเข้าสู่ระบบก่อน')</script>";
+    header('location: ../');
+  }
 ?>
 
 <!DOCTYPE html>
@@ -35,7 +41,7 @@
             <li><a class="dropdown-item" href="#">Settings</a></li>
             <li><a class="dropdown-item" href="#">Profile</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Sign out</a></li>
+            <li><a class="dropdown-item" href="signout.php">Sign out</a></li>
           </ul>
         </div>
       </div>
@@ -66,7 +72,6 @@
       </thead>
       <tbody>
         <?php
-          require_once("./action/load-users.php");
           foreach ($customers as $customer) {
         ?>
           <tr>

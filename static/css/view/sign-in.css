@@ -14,3 +14,9 @@
     transform: translate(-50%, -50%);
     background-color: rgb(255, 255, 255);
 }
+
+.login-error {
+    width: 100%; 
+    height: 20px; 
+    background-color: red;
+}

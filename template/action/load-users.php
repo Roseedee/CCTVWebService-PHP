@@ -1,5 +1,7 @@
 <?php
     require_once("dbconnect.php");
+    session_start();
+
     try {
         $stmt = $con->prepare("
             SELECT 
