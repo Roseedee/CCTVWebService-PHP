@@ -1,12 +1,14 @@
 <?php
     require_once('dbconnect.php');
+
     try {
+
         $name_lastname = $_POST['name-lastname'];
         $phone = $_POST['phone'];
         $email = $_POST['email'];
         $address = $_POST['address'];
-        $user_img = NULL; 
-        
+        $user_img = NULL;
+
         $stmt = $con->prepare("INSERT INTO user (name_lastname, phone, email, address, user_img) VALUES (:name_lastname, :phone, :email, :address, :user_img)");
         $stmt->bindParam(':name_lastname', $name_lastname);
         $stmt->bindParam(':phone', $phone);
@@ -27,10 +29,12 @@
         $stmt->bindParam(':account_type', $account_type);
         $stmt->bindParam(':user_id', $user_id);
         $stmt->execute();
+
+        header('location: ./../');
     } catch(PDOException $e) {
-        echo "Error: " . $e->getMessage();
+        echo "<script>alert('Insert user failed')</script>";
     }
 
-    $con = null;
 
+    $con = null;
 ?>

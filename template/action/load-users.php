@@ -16,11 +16,11 @@
             LEFT JOIN 
                 worksite w ON u.user_id = w.user_id
             LEFT JOIN 
-                notification n ON u.user_id = n.user_id
+                notification n ON u.user_id = n.user_id AND n.noti_status = 0
             LEFT JOIN 
                 service s ON s.noti_id = n.noti_id
             WHERE 
-                a.account_type = 'customer' AND n.noti_status = 0
+                a.account_type = 'customer'
             GROUP BY 
                 u.user_id;
         ");
