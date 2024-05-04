@@ -1,5 +1,6 @@
 <?php
   require_once("./action/load-users.php");
+  session_start();
 
   if(!isset($_SESSION['user_id'])) {
     header('location: ../');
@@ -26,7 +27,7 @@
         <ul class="nav nav-pills col-12 col-lg-auto me-lg-auto justify-content-center ms-5">
           <li class="nav-item"><a href="./" class="nav-link">หน้าหลัก</a></li>
           <li class="nav-item"><a href="./new-user.php" class="nav-link">เพิ่มลูกค้าใหม่</a></li>
-          <li class="nav-item"><a href="./new-worksite.html" class="nav-link">เพิ่มหน้างานใหม่</a></li>
+          <li class="nav-item"><a href="./new-worksite.php" class="nav-link">เพิ่มหน้างานใหม่</a></li>
         </ul>
 
         <a href="./notify-services.html" class="btn btn-light me-3 btn-sm">แจ้งเตือน</a>

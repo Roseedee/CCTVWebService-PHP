@@ -1,6 +1,5 @@
 <?php
     require_once("dbconnect.php");
-    session_start();
 
     try {
         $stmt = $con->prepare("
@@ -27,16 +26,7 @@
         $stmt->execute();
     
         $customers = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    
-        // foreach ($customers as $customer) {
-        //     echo "User ID: " . $customer['user_id'] . "<br>";
-        //     echo "Name Lastname: " . $customer['name_lastname'] . "<br>";
-        //     echo "Phone: " . $customer['phone'] . "<br>";
-        //     echo "Email: " . $customer['email'] . "<br>";
-        //     echo "Address: " . $customer['address'] . "<br>";
-        //     echo "User Image: " . $customer['user_img'] . "<br>";
-        //     echo "<hr>";
-        // }
+
     } catch(PDOException $e) {
         echo "Connection failed: " . $e->getMessage();
     }

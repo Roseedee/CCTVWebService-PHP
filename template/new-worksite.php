@@ -160,5 +160,45 @@
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
   <script src="../static/js/new-worksite.js"></script>
+  <script>
+    function onLoadUser() {
+      let user_list = document.getElementById('user-list');
+      user_list.innerHTML = '';
+      
+      var users = [
+          {
+              userId: "0001",
+              userName: "Roseedee Cehlaeh",
+              userImg: '1.jpg'
+          },
+          {
+              userId: "0002",
+              userName: "Solahudeen Cehlaeh",
+              userImg: '2.jpg'
+          },
+          {
+              userId: "0003",
+              userName: "Muhammad Cehlaeh",
+              userImg: '3.jpg'
+          }
+      ];
+      
+      users.forEach(user => {
+          const userDiv = document.createElement("a");
+          userDiv.href = "./new-worksite.php?user_id=" + user.userId;
+          userDiv.classList.add("user-selector-item");
+          userDiv.innerHTML = `
+              <div class="about-user">
+                  <p class="user-id m-0 text-muted">${user.userId}</p>
+                  <p class="user-name m-0">${user.userName}</p>
+              </div>
+              <div class="user-img">
+                  <img src="../static/image/test/${user.userImg}" alt="">
+              </div>
+          `;
+          user_list.appendChild(userDiv);
+      });
+    }
+  </script>
 </body>
 </html>

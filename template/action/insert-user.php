@@ -33,6 +33,7 @@
         header('location: ./../');
     } catch(PDOException $e) {
         echo "<script>alert('Insert user failed')</script>";
+        header('location: ./../new-user.php')
     }
 
 
