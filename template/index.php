@@ -2,7 +2,6 @@
   require_once("./action/load-users.php");
 
   if(!isset($_SESSION['user_id'])) {
-    echo "<script>alert('กรุณาเข้าสู่ระบบก่อน')</script>";
     header('location: ../');
   }
 ?>
@@ -26,7 +25,7 @@
 
         <ul class="nav nav-pills col-12 col-lg-auto me-lg-auto justify-content-center ms-5">
           <li class="nav-item"><a href="./" class="nav-link">หน้าหลัก</a></li>
-          <li class="nav-item"><a href="./new-user.html" class="nav-link">เพิ่มลูกค้าใหม่</a></li>
+          <li class="nav-item"><a href="./new-user.php" class="nav-link">เพิ่มลูกค้าใหม่</a></li>
           <li class="nav-item"><a href="./new-worksite.html" class="nav-link">เพิ่มหน้างานใหม่</a></li>
         </ul>
 

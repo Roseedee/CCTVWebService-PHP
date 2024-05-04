@@ -38,7 +38,7 @@
   </header>
   
   <div class="container my-container mb-4">
-    <form action="">
+    <form action="./action/insert-user.php" method="POST">
       <h2 class="mt-3 text-center">เพิ่มลูกค้าใหม่</h2>
       <div class="col mt-2">
         <div class="col d-flex flex-column align-items-center justify-content-center p-3 mb-3">
@@ -54,13 +54,13 @@
           <div class="row">
             <div class="col input-group mb-3"> 
               <div class="form-floating">
-                <input type="text" class="form-control" placeholder="ชื่อ-นามสกุล">
+                <input type="text" class="form-control" placeholder="ชื่อ-นามสกุล" name="name-lastname">
                 <label>ชื่อ-นามสกุล</label>
               </div>
             </div>
             <div class="col input-group mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" placeholder="เบอร์โทร">
+                <input type="text" class="form-control" placeholder="เบอร์โทร" name="phone">
                 <label>เบอร์โทร</label>
               </div>
             </div>
@@ -68,13 +68,13 @@
           <div class="row">
             <div class="col input-group mb-3">
               <div class="form-floating">
-                <input type="password" class="form-control" placeholder="อีเมล์">
+                <input type="password" class="form-control" placeholder="อีเมล์" name="email">
                 <label>อีเมล์</label>
               </div>
             </div>
             <div class="col input-group mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" placeholder="ที่อยู่">
+                <input type="text" class="form-control" placeholder="ที่อยู่" name="address">
                 <label>ที่อยู่</label>
               </div>
             </div>
@@ -83,19 +83,19 @@
           <div class="row">
             <div class="col input-group mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" placeholder="ชื่อผู้ใช้">
+                <input type="text" class="form-control" placeholder="ชื่อผู้ใช้" name="username">
                 <label>ชื่อผู้ใช้</label>
               </div>
             </div>
             <div class="col input-group mb-3">
               <div class="form-floating">
-                <input type="password" class="form-control" placeholder="รหัสผ่าน">
+                <input type="password" class="form-control" placeholder="รหัสผ่าน" name="password">
                 <label>รหัสผ่าน</label>
               </div>
             </div>
           </div>
           <div class="d-grid gap-2">
-            <button class="btn btn-primary btn-lg" type="button">เพิ่มหน้างาน</button>
+            <button class="btn btn-primary btn-lg" type="submit">เพิ่มหน้างาน</button>
           </div>
         </div>
       </div>

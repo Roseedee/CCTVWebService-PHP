@@ -19,8 +19,6 @@
   <link href="static/css/main.css" rel="stylesheet">
 </head>
 <body class="background">
-  <div class="login-error"></div>
-  <!-- <div style="width: 100%; height: 20px; background-color: red;"></div> -->
   <div class="my-form">
      <div class="my-card pt-3 d-flex flex-column">
       <div class="d-flex justify-content-center">
