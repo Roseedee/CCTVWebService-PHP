@@ -42,7 +42,7 @@ CREATE TABLE `account` (
 
 INSERT INTO `account` (`account_id`, `username`, `password`, `account_type`, `create_at`, `user_id`) VALUES
 (1, 'yalanetcom', '12345', 'admin', '2024-05-02 15:21:00', 1),
-(2, 'roseedee', '12345', 'admin', '2024-05-02 15:22:09', 2),
+(2, 'testadmin', '12345', 'admin', '2024-05-02 15:22:09', 2),
 (3, 'user1', '12345', 'customer', '2024-05-02 15:30:15', 3),
 (5, 'user2', '12345', 'customer', '2024-05-02 16:32:02', 4),
 (6, 'user3', '12345', 'customer', '2024-05-02 16:32:20', 5);
@@ -121,7 +121,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`user_id`, `name_lastname`, `phone`, `email`, `address`, `user_img`) VALUES
 (1, 'Abdullah Chemae', '0826537095', 'vernerlive.090@gmail.com', 'ยะลา ประเทศไทย', NULL),
-(2, 'Roseedee Cehlaeh', '0630742165', 'roseedee2002@gmail.com', 'สงขลา ประเทศไทย', NULL),
+(2, 'UserTest Admin', '9876543210', 'testemailadmin@gmail.com', 'สงขลา ประเทศไทย', NULL),
 (3, 'ลูกค้าทดลอง คนที่1', '0123456789', 'testemail123@gmail.com', 'ปัตตานี ประเทศไทย', NULL),
 (4, 'ลูกค้าทดลอง คนที่2', '9876543210', 'testemail123@gmail.com', 'ปัตตานี ประเทศไทย', NULL),
 (5, 'ลูกค้าทดลอง คนที่3', '0123456789', 'testemail123@gmail.com', 'ปัตตานี ประเทศไทย', NULL);
