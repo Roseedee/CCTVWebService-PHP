@@ -2,40 +2,81 @@
     require_once('dbconnect.php');
 
     try {
+        $target_dir = "../../uploads/user-img/";
+        $uploadOk = 1;
+        $img_status = 0;
 
-        $name_lastname = $_POST['name-lastname'];
-        $phone = $_POST['phone'];
-        $email = $_POST['email'];
-        $address = $_POST['address'];
-        $user_img = NULL;
+        if (!empty($_FILES["user_img"]["name"])) {
+            $imageFileType = strtolower(pathinfo($_FILES["user_img"]["name"], PATHINFO_EXTENSION));
 
-        $stmt = $con->prepare("INSERT INTO user (name_lastname, phone, email, address, user_img) VALUES (:name_lastname, :phone, :email, :address, :user_img)");
-        $stmt->bindParam(':name_lastname', $name_lastname);
-        $stmt->bindParam(':phone', $phone);
-        $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':address', $address);
-        $stmt->bindParam(':user_img', $user_img);
-        $stmt->execute();
+            $check = getimagesize($_FILES["user_img"]["tmp_name"]);
+            if ($check === false) {
+                echo "File is not an image.";
+                $uploadOk = 0;
+            }
 
-        $user_id = $con->lastInsertId();
+            if ($_FILES["user_img"]["size"] > 500000) {
+                echo "Sorry, your file is too large.";
+                $uploadOk = 0;
+            }
 
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-        $account_type = "customer";
+            if (!in_array($imageFileType, ["jpg", "jpeg", "png", "gif"])) {
+                echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+                $uploadOk = 0;
+            }
 
-        $stmt = $con->prepare("INSERT INTO account (username, password, account_type, user_id) VALUES (:username, :password, :account_type, :user_id)");
-        $stmt->bindParam(':username', $username);
-        $stmt->bindParam(':password', $password);
-        $stmt->bindParam(':account_type', $account_type);
-        $stmt->bindParam(':user_id', $user_id);
-        $stmt->execute();
+            if ($uploadOk == 1) {
+                $img_status = 1;
+            }
+        }
 
-        header('location: ./../');
+        if ($uploadOk == 0) {
+            echo "Sorry, your file was not uploaded.";
+        } else {
+            $name_lastname = $_POST['name-lastname'];
+            $phone = $_POST['phone'];
+            $email = $_POST['email'];
+            $address = $_POST['address'];
+
+            $stmt = $con->prepare("INSERT INTO user (name_lastname, phone, email, address, img_url) VALUES (:name_lastname, :phone, :email, :address, :img_url)");
+            $stmt->bindParam(':name_lastname', $name_lastname);
+            $stmt->bindParam(':phone', $phone);
+            $stmt->bindParam(':email', $email);
+            $stmt->bindParam(':address', $address);
+            $stmt->bindParam(':img_url', $img_status);
+            $stmt->execute();
+
+            $user_id = $con->lastInsertId();
+
+            if ($img_status == 1) { // If image was uploaded
+                $newFileName = $user_id . "." . $imageFileType;
+                $newFilePath = $target_dir . $newFileName;
+
+                if (move_uploaded_file($_FILES["user_img"]["tmp_name"], $newFilePath)) {
+                    echo "The file " . htmlspecialchars(basename($_FILES["user_img"]["name"])) . " has been uploaded.<br>";
+                    echo "The file path is: " . $newFilePath . "<br>";
+                } else {
+                    echo "Sorry, there was an error uploading your file.";
+                }
+            }
+
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+            $account_type = "customer";
+
+            $stmt = $con->prepare("INSERT INTO account (username, password, account_type, user_id) VALUES (:username, :password, :account_type, :user_id)");
+            $stmt->bindParam(':username', $username);
+            $stmt->bindParam(':password', $password);
+            $stmt->bindParam(':account_type', $account_type);
+            $stmt->bindParam(':user_id', $user_id);
+            $stmt->execute();
+
+            header('location: ./../');
+        }
     } catch(PDOException $e) {
-        echo "<script>alert('Insert user failed')</script>";
+        echo "insert user failed : " . $e->getMessage();
         header('location: ./../new-user.php');
     }
-
 
     $con = null;
 ?>
