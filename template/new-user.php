@@ -68,7 +68,7 @@
           <div class="row">
             <div class="col input-group mb-3">
               <div class="form-floating">
-                <input type="password" class="form-control" placeholder="อีเมล์" name="email">
+                <input type="text" class="form-control" placeholder="อีเมล์" name="email">
                 <label>อีเมล์</label>
               </div>
             </div>
