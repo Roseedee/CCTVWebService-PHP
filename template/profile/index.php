@@ -1,3 +1,7 @@
+<?php
+  require_once('action/load-user.php')
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,8 +22,8 @@
 
         <ul class="nav nav-pills col-12 col-lg-auto me-lg-auto justify-content-center ms-5">
           <li class="nav-item"><a href="../" class="nav-link">หน้าหลัก</a></li>
-          <li class="nav-item"><a href="../new-user.html" class="nav-link">เพิ่มลูกค้าใหม่</a></li>
-          <li class="nav-item"><a href="../new-worksite.html" class="nav-link">เพิ่มหน้างานใหม่</a></li>
+          <li class="nav-item"><a href="../new-user.php" class="nav-link">เพิ่มลูกค้าใหม่</a></li>
+          <li class="nav-item"><a href="../new-worksite.php" class="nav-link">เพิ่มหน้างานใหม่</a></li>
         </ul>
 
         <a href="./notify-services.html" class="btn btn-light me-3 btn-sm">แจ้งเตือน</a>
@@ -51,13 +55,13 @@
         <div class="profile-nav pe-0">
           <ul class="nav nav-tabs">
             <li class="nav-item">
-              <a class="nav-link active" href="">ข้อมูลบัญชี</a>
+              <a class="nav-link active" href="">ข้อมูลส่วนตัว</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./account.html">ข้อมูลบัญชี</a>
+              <a class="nav-link" href="./account.php?user-id=<?php echo $user_id; ?>">ข้อมูลบัญชี</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./password-manage.html">เปลี่ยนรหัสผ่าน</a>
+              <a class="nav-link" href="./password-manage.php?user-id=<?php echo $user_id; ?>">เปลี่ยนรหัสผ่าน</a>
             </li>
           </ul>
           <button type="submit" class="btn btn-primary">บันทึก</button>
@@ -66,13 +70,13 @@
           <div class="row">
             <div class="col input-group mb-3"> 
               <div class="form-floating">
-                <input type="text" class="form-control" placeholder="ชื่อ-นามสกุล">
+                <input type="text" class="form-control" placeholder="ชื่อ-นามสกุล" value="<?php echo $user_info[0]['name_lastname']; ?>">
                 <label>ชื่อ-นามสกุล</label>
               </div>
             </div>
             <div class="col input-group mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" placeholder="เบอร์โทร">
+                <input type="text" class="form-control" placeholder="เบอร์โทร" value="<?php echo $user_info[0]['phone']; ?>">
                 <label>เบอร์โทร</label>
               </div>
             </div>
@@ -80,13 +84,13 @@
           <div class="row">
             <div class="col input-group mb-3"> 
               <div class="form-floating">
-                <input type="text" class="form-control" placeholder="อีเมล์">
+                <input type="text" class="form-control" placeholder="อีเมล์" value="<?php echo $user_info[0]['email']; ?>">
                 <label>อีเมล์</label>
               </div>
             </div>
             <div class="col input-group mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" placeholder="ที่อยู่">
+                <input type="text" class="form-control" placeholder="ที่อยู่" value="<?php echo $user_info[0]['address']; ?>">
                 <label>ที่อยู่</label>
               </div>
             </div>
