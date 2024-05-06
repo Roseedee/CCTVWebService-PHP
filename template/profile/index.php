@@ -1,5 +1,6 @@
 <?php
-  require_once('action/load-user.php')
+  require_once('action/load-user.php');
+  require_once('action/load-worksite.php');
 ?>
 
 <!DOCTYPE html>
@@ -112,28 +113,31 @@
           </tr>
         </thead>
         <tbody>
+        <?php
+          foreach ($worksite_list as $worksite) {
+        ?>
           <tr>
             <td>
               <div class="d-flex align-items-center">
                 <img src="../../static/image/test/2.jpg" alt="" style="width: 70px; height: 70px" class="rounded"/>
                 <div class="ms-3 d-flex flex-column">
-                  <p class="m-0 text-muted" style="font-size: 12px;">0001</p>
-                  <a href=""><p class="fw-bold mb-0">บ้าน</p></a>
-                  <p class="text-muted m-0">Install Date : 12/5/2657</p>
+                  <p class="m-0 text-muted" style="font-size: 12px;"><?php echo $worksite['worksite_id']; ?></p>
+                  <a href=""><p class="fw-bold mb-0"><?php echo $worksite['worksite_name']; ?></p></a>
+                  <p class="text-muted m-0">Install Date : <?php echo $worksite['install_date']; ?></p>
                 </div>
               </div>
             </td>
             <td>
-              ลูกค้าซื้อกล้องมาเองให้เราติดตั้ง
+            <?php echo $worksite['other_details']; ?>
             </td>
             <td class="text-center">
-              <a href="">18.3170581,99.3986862</a>
+              <?php echo $worksite['address']; ?>
             </td>
             <td class="text-center">
-              16
+              <?php echo $worksite['camera_number']; ?>
             </td>
             <td class="text-center">
-              2
+              <?php echo $worksite['num_services']; ?>
             </td>
             <td class="text-center">
               <div class="d-flex align-items-center justify-content-center">
@@ -141,35 +145,9 @@
               </div>
             </td>
           </tr>
-          <tr>
-            <td>
-              <div class="d-flex align-items-center">
-                <img src="../../static/image/test/2.jpg" alt="" style="width: 70px; height: 70px" class="rounded"/>
-                <div class="ms-3 d-flex flex-column">
-                  <p class="m-0 text-muted" style="font-size: 12px;">0001</p>
-                  <a href=""><p class="fw-bold mb-0">บ้าน</p></a>
-                  <p class="text-muted m-0">Install Date : 12/5/2657</p>
-                </div>
-              </div>
-            </td>
-            <td>
-              ลูกค้าซื้อกล้องมาเองให้เราติดตั้ง
-            </td>
-            <td class="text-center">
-              <a href="">18.3170581,99.3986862</a>
-            </td>
-            <td class="text-center">
-              16
-            </td>
-            <td class="text-center">
-              2
-            </td>
-            <td class="text-center">
-              <div class="d-flex align-items-center justify-content-center">
-                <div class="me-2" style="width: 5px; height: 5px; border-radius: 50%; background-color: yellow;"></div>อยู่ในประกัน
-              </div>
-            </td>
-          </tr>
+        <?php
+          }
+        ?>
         </tbody>
       </table>
     </div>
