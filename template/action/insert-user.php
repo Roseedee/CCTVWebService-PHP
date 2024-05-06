@@ -4,7 +4,6 @@
     try {
         $target_dir = "../../uploads/user-img/";
         $uploadOk = 1;
-        $img_status = 0;
 
         if (!empty($_FILES["user_img"]["name"])) {
             $imageFileType = strtolower(pathinfo($_FILES["user_img"]["name"], PATHINFO_EXTENSION));
@@ -24,10 +23,6 @@
                 echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
                 $uploadOk = 0;
             }
-
-            if ($uploadOk == 1) {
-                $img_status = 1;
-            }
         }
 
         if ($uploadOk == 0) {
@@ -38,26 +33,24 @@
             $email = $_POST['email'];
             $address = $_POST['address'];
 
-            $stmt = $con->prepare("INSERT INTO user (name_lastname, phone, email, address, img_url) VALUES (:name_lastname, :phone, :email, :address, :img_url)");
+            $stmt = $con->prepare("INSERT INTO user (name_lastname, phone, email, address, img_type) VALUES (:name_lastname, :phone, :email, :address, :img_type)");
             $stmt->bindParam(':name_lastname', $name_lastname);
             $stmt->bindParam(':phone', $phone);
             $stmt->bindParam(':email', $email);
             $stmt->bindParam(':address', $address);
-            $stmt->bindParam(':img_url', $img_status);
+            $stmt->bindParam(':img_type', $imageFileType);
             $stmt->execute();
 
             $user_id = $con->lastInsertId();
 
-            if ($img_status == 1) { // If image was uploaded
-                $newFileName = $user_id . "." . $imageFileType;
-                $newFilePath = $target_dir . $newFileName;
+            $newFileName = $user_id . "." . $imageFileType;
+            $newFilePath = $target_dir . $newFileName;
 
-                if (move_uploaded_file($_FILES["user_img"]["tmp_name"], $newFilePath)) {
-                    echo "The file " . htmlspecialchars(basename($_FILES["user_img"]["name"])) . " has been uploaded.<br>";
-                    echo "The file path is: " . $newFilePath . "<br>";
-                } else {
-                    echo "Sorry, there was an error uploading your file.";
-                }
+            if (move_uploaded_file($_FILES["user_img"]["tmp_name"], $newFilePath)) {
+                echo "The file " . htmlspecialchars(basename($_FILES["user_img"]["name"])) . " has been uploaded.<br>";
+                echo "The file path is: " . $newFilePath . "<br>";
+            } else {
+                echo "Sorry, there was an error uploading your file.";
             }
 
             $username = $_POST['username'];
