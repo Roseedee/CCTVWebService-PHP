@@ -50,7 +50,7 @@
     <form class="about-user mt-3">
       <input type="file" name="" id="img-input" style="display: none;">
       <div tool class="user-img" onclick="document.getElementById('img-input').click()">
-        <img src="../../uploads/user-img/<?php echo $user_info[0]['img_type'] != NULL ? $user_info[0]['user_id'] . "." . $user_info[0]['img_type'] : 'default.png' ; ?>" alt="" id="user-img">
+        <img src="../../uploads/user-img/<?php echo $user_info[0]['img_type'] != NULL ? $user_id . "." . $user_info[0]['img_type'] : 'default.png' ; ?>" alt="" id="user-img">
       </div>
       <div class="user-info ps-5">
         <div class="profile-nav pe-0">
