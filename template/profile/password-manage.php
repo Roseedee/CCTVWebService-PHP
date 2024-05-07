@@ -158,11 +158,7 @@
   <footer class="pt-3">
     <ul class="nav align-items-center justify-content-center mb-2">
       <img src="../../static/image/logo-sm.png" class="me-3" height="40" alt="">
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Service</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Pricing</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>  
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
+      <li class="nav-item">ระบบให้บริการกล้องวงจรปิด</li>
     </ul>
     <p class="text-center text-body-secondary">© 2024 YALANETCOM</p>
   </footer>
