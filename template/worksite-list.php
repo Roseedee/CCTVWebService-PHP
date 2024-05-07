@@ -21,15 +21,15 @@
 
         <ul class="nav nav-pills col-12 col-lg-auto me-lg-auto justify-content-center ms-5">
           <li class="nav-item"><a href="./" class="nav-link">หน้าหลัก</a></li>
-          <li class="nav-item"><a href="./new-user.html" class="nav-link">เพิ่มลูกค้าใหม่</a></li>
-          <li class="nav-item"><a href="./new-worksite.html" class="nav-link">เพิ่มหน้างานใหม่</a></li>
+          <li class="nav-item"><a href="./new-user.php" class="nav-link">เพิ่มลูกค้าใหม่</a></li>
+          <li class="nav-item"><a href="./new-worksite.php" class="nav-link">เพิ่มหน้างานใหม่</a></li>
         </ul>
 
-        <a href="/template/notify-services.html" class="btn btn-light me-3 btn-sm">แจ้งเตือน</a>
+        <a href="/template/notify-services.php" class="btn btn-light me-3 btn-sm">แจ้งเตือน</a>
         
         <div class="dropdown text-end ms-2">
           <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+            <img src="../static/icon/user.png" alt="mdo" width="32" height="32" class="rounded-circle">
           </a>
           <ul class="dropdown-menu text-small">
             <li><a class="dropdown-item" href="#">New project...</a></li>
@@ -47,7 +47,7 @@
     <div class="d-flex justify-content-between py-2">
       <div class="d-flex align-items-center">
         <a href="./" class="btn btn-light btn-sm me-1">ลูกค้า</a>
-        <a href="./work-site.html" class="btn btn-primary btn-sm">หน้างาน</a>
+        <a href="./work-site.php" class="btn btn-primary btn-sm">หน้างาน</a>
       </div>
       <form class="d-flex">
         <input type="text" class="form-control me-2" placeholder="ค้นหา" aria-label="Username" aria-describedby="basic-addon1">

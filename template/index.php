@@ -30,7 +30,7 @@
           <li class="nav-item"><a href="./new-worksite.php" class="nav-link">เพิ่มหน้างานใหม่</a></li>
         </ul>
 
-        <a href="./notify-services.html" class="btn btn-light me-3 btn-sm">แจ้งเตือน</a>
+        <a href="./notify-services.php" class="btn btn-light me-3 btn-sm">แจ้งเตือน</a>
         
         <div class="dropdown text-end ms-2">
           <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
