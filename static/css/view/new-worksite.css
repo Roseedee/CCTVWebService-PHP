@@ -117,6 +117,7 @@
         border-radius: 5px;
         transition: 0.3s;
         margin-top: 5px;
+        text-decoration: none;
 
         div {
             display: flex;
@@ -132,6 +133,10 @@
 
             & .user-id {
                 font-size: 12px;
+            }
+
+            p {
+                color: black;
             }
         }
 

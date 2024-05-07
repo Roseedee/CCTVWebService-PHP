@@ -1,3 +1,7 @@
+<?php
+  require_once('action/load-user.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,50 +67,13 @@
           </div>
         </div>
         <div id="show-all-img-name"></div>
-        <div class="col input-group mt-3">
-          <span class="input-group-text"><img src="/static/icon/user.png" width="32"></span>
+        <div class="col input-group mt-3" id="user-item">
+          <span class="input-group-text"><img src="../static/icon/user.png" width="32"></span>
           <div class="form-floating">
-            <input type="text" class="form-control" id="user-search" placeholder="รหัสลูกค้า, ชื่อ-นามสกุลลูกค้า">
+            <input type="text" class="form-control" id="user-search" placeholder="รหัสลูกค้า, ชื่อ-นามสกุลลูกค้า" value="<?php echo isset($_GET['user-id']) ? $_GET['user-id'] : "" ?>">
             <label for="user-search">รหัสลูกค้า, ชื่อ-นามสกุลลูกค้า</label>
           </div>
-        </div>
-        <div class="my-user-selector" id="user-list">
-          <div class="user-selector-item">
-            <div class="about-user">
-              <p class="user-id m-0 text-muted">0010</p>
-              <p class="user-name m-0">รอซีดี เจีะแล๊ะ</p>
-            </div>
-            <div class="user-img">
-              <img src="../static/image/test/2.jpg" alt="">
-            </div>
-          </div>
-          <div class="user-selector-item">
-            <div class="about-user">
-              <p class="user-id m-0 text-muted">0010</p>
-              <p class="user-name m-0">รอซีดี เจีะแล๊ะ</p>
-            </div>
-            <div class="user-img">
-              <img src="../static/icon/user.png" alt="">
-            </div>
-          </div>
-          <div class="user-selector-item">
-            <div class="about-user">
-              <p class="user-id m-0 text-muted">0010</p>
-              <p class="user-name m-0">รอซีดี เจีะแล๊ะ</p>
-            </div>
-            <div class="user-img">
-              <img src="../static/icon/user.png" alt="">
-            </div>
-          </div>
-          <div class="user-selector-item">
-            <div class="about-user">
-              <p class="user-id m-0 text-muted">0010</p>
-              <p class="user-name m-0">รอซีดี เจีะแล๊ะ</p>
-            </div>
-            <div class="user-img">
-              <img src="../static/image/test/2.jpg" alt="">
-            </div>
-          </div>
+          <div class="my-user-selector" id="user-list"></div>
         </div>
         <div class="row mt-3">
           <div class="col input-group mb-3"> 
@@ -162,37 +129,46 @@
       user_list.innerHTML = '';
       
       var users = [
+        <?php
+          foreach ($customers as $customer) {
+        ?>
           {
-              userId: "0001",
-              userName: "Roseedee Cehlaeh",
-              userImg: '1.jpg'
+              userId: "<?php echo $customer['user_id']?>",
+              userName: "<?php echo $customer['name_lastname']?>",
+              imgType: '<?php echo $customer['img_type']?>'
           },
-          {
-              userId: "0002",
-              userName: "Solahudeen Cehlaeh",
-              userImg: '2.jpg'
-          },
-          {
-              userId: "0003",
-              userName: "Muhammad Cehlaeh",
-              userImg: '3.jpg'
+        <?php
           }
+        ?>
       ];
       
       users.forEach(user => {
-          const userDiv = document.createElement("a");
-          userDiv.href = "./new-worksite.php?user_id=" + user.userId;
-          userDiv.classList.add("user-selector-item");
-          userDiv.innerHTML = `
-              <div class="about-user">
-                  <p class="user-id m-0 text-muted">${user.userId}</p>
-                  <p class="user-name m-0">${user.userName}</p>
-              </div>
-              <div class="user-img">
-                  <img src="../static/image/test/${user.userImg}" alt="">
-              </div>
-          `;
-          user_list.appendChild(userDiv);
+          const userItem = document.createElement("a");
+          userItem.href = "./new-worksite.php?user-id=" + user.userId;
+          userItem.classList.add("user-selector-item");
+          if(user.imgType) {
+            userItem.innerHTML = `
+                <div class="about-user">
+                    <p class="user-id m-0 text-muted">${user.userId}</p>
+                    <p class="user-name m-0">${user.userName}</p>
+                </div>
+                <div class="user-img">
+                    <img src="../uploads/user-img/${user.userId}.${user.imgType}" alt="">
+                </div>
+            `;
+          }else {
+            userItem.innerHTML = `
+                <div class="about-user">
+                    <p class="user-id m-0 text-muted">${user.userId}</p>
+                    <p class="user-name m-0">${user.userName}</p>
+                </div>
+                <div class="user-img">
+                    <img src="../uploads/user-img/default.png" alt="">
+                </div>
+            `;
+          }
+
+          user_list.appendChild(userItem);
       });
     }
   </script>

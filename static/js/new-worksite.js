@@ -68,7 +68,7 @@ document.getElementById('images-selector-add-worksite').addEventListener('change
 
 document.getElementById('user-search').addEventListener('input', function(event) {
     const user_search = document.getElementById('user-search').value
-    alert(user_search)
+    // alert(user_search)
 });
 
 document.getElementById('user-search').addEventListener('focus', function(event) {
@@ -76,7 +76,7 @@ document.getElementById('user-search').addEventListener('focus', function(event)
     user_list.display = 'block'
 });
 
-document.getElementById('user-search').addEventListener('blur', function(event) {
+document.getElementById('user-item').addEventListener('mouseleave', function(event) {
     const userList = document.getElementById('user-list').style;
     userList.display = 'none';
 });
