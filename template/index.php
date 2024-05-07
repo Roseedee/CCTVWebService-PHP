@@ -99,7 +99,7 @@
               <i class="text-muted" style="font-size: 14px;">ล่าสุด <?php echo $customer['latest_service_date'] ?></i>
             </td>
             <td class="text-center">
-            <a class="btn btn-primary btn-sm btn-rounded">เพิ่มหน้างาน</a>
+              <a class="btn btn-primary btn-sm btn-rounded" href="./new-worksite.php?user-id=<?php echo $customer['user_id'] ?>">เพิ่มหน้างาน</a>
             </td>
           </tr>
         <?php
