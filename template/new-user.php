@@ -93,7 +93,7 @@
             </div>
           </div>
           <div class="d-grid gap-2">
-            <button class="btn btn-primary btn-lg" type="submit">เพิ่มหน้างาน</button>
+            <button class="btn btn-primary btn-lg" type="submit">เพิ่มลูกค้าใหม่</button>
           </div>
         </div>
       </div>
