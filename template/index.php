@@ -63,7 +63,7 @@
       <thead>
         <tr>
           <th>ลูกค้า</th>
-          <th>เบอร์โทร</th>
+          <th>เบอร์โทร</th>   
           <th>ที่อยู่</th>
           <th class="text-center">หน้างาน</th>
           <th class="text-center">เซอร์วิส(ครั้ง)</th>
