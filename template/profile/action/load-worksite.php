@@ -7,7 +7,11 @@
         $stmt = $con->prepare("
             SELECT 
                 w.*,
-                COUNT(DISTINCT n.noti_id) AS num_services
+                COUNT(DISTINCT n.noti_id) AS num_services,
+                CASE 
+                    WHEN w.install_date < DATE_SUB(CURRENT_DATE(), INTERVAL 2 YEAR) THEN 0
+                    ELSE 1
+                END AS install_date_status
             FROM 
                 worksite w 
             LEFT JOIN 

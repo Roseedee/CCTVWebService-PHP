@@ -129,7 +129,13 @@
             </td>
             <td class="text-center">
               <div class="d-flex align-items-center justify-content-center">
-                <div class="me-2" style="width: 5px; height: 5px; border-radius: 50%; background-color: yellow;"></div>อยู่ในประกัน
+                <?php
+                  if($worksite['install_date_status']) {
+                    echo '<div class="me-2" style="width: 5px; height: 5px; border-radius: 50%; background-color: yellow;"></div>อยู่ในประกัน';
+                  }else {
+                    echo '<div class="me-2" style="width: 5px; height: 5px; border-radius: 50%; background-color: red;"></div>หมดประกันแล้ว';
+                  }
+                ?>
               </div>
             </td>
           </tr>
