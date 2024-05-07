@@ -72,7 +72,7 @@
         <tr>
           <td>
             <div class="d-flex align-items-center">
-              <img src="../static/icon/user.png" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+            <img src="../uploads/user-img/<?php echo $worksite['img_type'] ? $worksite['user_id'] . "." . $worksite['img_type'] : "default.png" ; ?>" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
               <div class="ms-3 d-flex flex-column">
                 <p class="m-0 text-muted" style="font-size: 12px;"><?php echo $worksite['user_id']?></p>
                 <a href="./profile?user-id=<?php echo $worksite['user_id']?>"><p class="fw-bold mb-0"><?php echo $worksite['name_lastname']?></p></a>
