@@ -9,6 +9,11 @@
     align-items: center;
 }
 
+#image-container:hover {
+    cursor: pointer;
+    border: 5px solid #7e76d4;
+}
+
 .user-image-preview {
     width: 100%;
     min-height: 100%;

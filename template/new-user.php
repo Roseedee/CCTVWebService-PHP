@@ -42,12 +42,10 @@
       <h2 class="mt-3 text-center">เพิ่มลูกค้าใหม่</h2>
       <div class="col mt-2">
         <div class="col d-flex flex-column align-items-center justify-content-center p-3 mb-3">
-          <div id="image-container">
+          <div id="image-container" onclick="document.getElementById('image-selector-add-user').click()">
             <img class="user-image-preview" src="../static/icon/user-lg.png">
           </div>
-          <div class="input-group mt-3" style="width: 30%;">
-            <input type="file" class="form-control" id="image-selector-add-user" name="user_img">
-          </div>
+          <input type="file" class="form-control" id="image-selector-add-user" name="user_img" style="display: none;">
         </div>
         <div class="col container-sm">
           <p class="fw-bold text-start">ข้อมูลส่วนตัว</p>
