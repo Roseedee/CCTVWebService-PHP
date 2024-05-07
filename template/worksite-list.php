@@ -47,7 +47,7 @@
     <div class="d-flex justify-content-between py-2">
       <div class="d-flex align-items-center">
         <a href="./" class="btn btn-light btn-sm me-1">ลูกค้า</a>
-        <a href="./work-site.php" class="btn btn-primary btn-sm">หน้างาน</a>
+        <a href="./worksite-.php" class="btn btn-primary btn-sm">หน้างาน</a>
       </div>
       <form class="d-flex">
         <input type="text" class="form-control me-2" placeholder="ค้นหา" aria-label="Username" aria-describedby="basic-addon1">

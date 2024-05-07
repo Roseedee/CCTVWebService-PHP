@@ -80,6 +80,3 @@ document.getElementById('user-item').addEventListener('mouseleave', function(eve
     const userList = document.getElementById('user-list').style;
     userList.display = 'none';
 });
-
-
-
