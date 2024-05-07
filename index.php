@@ -1,10 +1,17 @@
 <?php
   require_once("./template/action/dbconnect.php");
+  session_start();
 
   $login_error = isset($_GET['login_error']) ? $_GET['login_error'] : 0;
+  
 
   if($login_error) {
     echo "<script>alert('ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง')</script>";
+  }
+
+
+  if(isset($_SESSION['user_id'])) {
+    header('location: ./template/');
   }
 ?>
 
