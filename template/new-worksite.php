@@ -44,7 +44,7 @@
   <div class="container my-container text-center">
     <h2 class="mt-3">เพิ่มหน้างานใหม่</h2>
     <div class="row mt-3 mb-3 justify-content-center">
-      <form action="" class="my-form p-0">
+      <form action="./action/insert-worksite.php" class="my-form p-0" method="POST">
         <div class="col">
           <p class="text-start mb-1">รูปหน้างาน</p>
           <div class="d-flex">
@@ -70,21 +70,21 @@
         <div class="col input-group mt-3" id="user-item">
           <span class="input-group-text"><img src="../static/icon/user.png" width="32"></span>
           <div class="form-floating">
-            <input type="text" class="form-control" id="user-search" placeholder="รหัสลูกค้า, ชื่อ-นามสกุลลูกค้า" value="<?php echo isset($_GET['user-id']) ? $_GET['user-id'] : "" ?>">
-            <label for="user-search">รหัสลูกค้า, ชื่อ-นามสกุลลูกค้า</label>
+            <input type="text" class="form-control" id="user-search" placeholder="รหัสประจำตัวลูกค้า" value="<?php echo isset($_GET['user-id']) ? $_GET['user-id'] : "" ?>" name="user-id" readonly required>
+            <label for="user-search">รหัสประจำตัวลูกค้า</label>
           </div>
           <div class="my-user-selector" id="user-list"></div>
         </div>
         <div class="row mt-3">
           <div class="col input-group mb-3"> 
             <div class="form-floating">
-              <input type="text" class="form-control" placeholder="ชื่อหน้างาน">
+              <input type="text" class="form-control" placeholder="ชื่อหน้างาน" name="worksite-name" required>
               <label>ชื่อหน้างาน</label>
             </div>
           </div>
           <div class="col input-group mb-3">
             <div class="form-floating">
-              <input type="text" class="form-control" placeholder="ที่อยู่หน้างาน">
+              <input type="text" class="form-control" placeholder="ที่อยู่หน้างาน" name="address" required>
               <label>ที่อยู่หน้างาน</label>
             </div>
           </div>
@@ -92,22 +92,22 @@
         <div class="row">
           <div class="col input-group mb-3"> 
             <div class="form-floating">
-              <input type="number" class="form-control" placeholder="จำนวนกล้องวงจรปิด">
+              <input type="number" class="form-control" placeholder="จำนวนกล้องวงจรปิด" name="camera-number" required>
               <label>จำนวนกล้องวงจรปิด</label>
             </div>
           </div>
           <div class="col input-group mb-3">
             <div class="form-floating">
-              <input type="date" class="form-control" placeholder="วันที่ติดตั้ง">
+              <input type="date" class="form-control" placeholder="วันที่ติดตั้ง" name="install-date" required>
               <label>วันที่ติดตั้ง</label>
             </div>
           </div>
         </div>
         <div class="col">
-          <textarea name="" id="" class="form-control" rows="5" style="padding: 10px; border-radius: 5px;" placeholder="รายละเอียดเพิ่มเติม"></textarea>
+          <textarea name="other-details" id="" class="form-control" rows="5" style="padding: 10px; border-radius: 5px;" placeholder="รายละเอียดเพิ่มเติม"></textarea>
         </div>
         <div class="d-grid gap-2 mt-3">
-          <button class="btn btn-primary btn-lg" type="button">บันทึกข้อมูล</button>
+          <button class="btn btn-primary btn-lg" type="submit">บันทึกข้อมูล</button>
         </div>
       </form>
     </div>
