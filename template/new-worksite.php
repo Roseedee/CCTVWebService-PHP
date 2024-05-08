@@ -70,7 +70,7 @@
         <div class="col input-group mt-3" id="user-item">
           <span class="input-group-text"><img src="../static/icon/user.png" width="32"></span>
           <div class="form-floating">
-            <input type="text" class="form-control" id="user-search" placeholder="รหัสประจำตัวลูกค้า" value="<?php echo isset($_GET['user-id']) ? $_GET['user-id'] : "" ?>" name="user-id" readonly required>
+            <input type="text" class="form-control" id="user-search" placeholder="รหัสประจำตัวลูกค้า" value="<?php echo isset($_GET['user-id']) ? $_GET['user-id'] : "" ?>" name="user-id" required>
             <label for="user-search">รหัสประจำตัวลูกค้า</label>
           </div>
           <div class="my-user-selector" id="user-list"></div>
@@ -98,7 +98,7 @@
           </div>
           <div class="col input-group mb-3">
             <div class="form-floating">
-              <input type="date" class="form-control" placeholder="วันที่ติดตั้ง" name="install-date" required>
+              <input type="date" class="form-control" placeholder="วันที่ติดตั้ง" id="install-date" name="install-date" required>
               <label>วันที่ติดตั้ง</label>
             </div>
           </div>
@@ -124,6 +124,14 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
   <script src="../static/js/new-worksite.js"></script>
   <script>
+    
+    var today = new Date();
+    var year = today.getFullYear();
+    var month = String(today.getMonth() + 1).padStart(2, '0');
+    var day = String(today.getDate()).padStart(2, '0');
+    var formattedDate = `${year}-${month}-${day}`;
+    document.getElementById('install-date').value = formattedDate;
+
     function onLoadUser() {
       let user_list = document.getElementById('user-list');
       user_list.innerHTML = '';
