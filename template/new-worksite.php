@@ -44,7 +44,7 @@
   <div class="container my-container text-center">
     <h2 class="mt-3">เพิ่มหน้างานใหม่</h2>
     <div class="row mt-3 mb-3 justify-content-center">
-      <form action="./action/insert-worksite.php" class="my-form p-0" method="POST">
+      <form action="./action/insert-worksite.php" class="my-form p-0" method="POST" enctype="multipart/form-data">
         <div class="col">
           <p class="text-start mb-1">รูปหน้างาน</p>
           <div class="d-flex">
@@ -52,7 +52,7 @@
               <label for="images-selector-add-worksite" class="file-upload-label">
                 <img src="../static/icon/add.png" alt="">
               </label>
-              <input id="images-selector-add-worksite" type="file" accept=".jpg, .jpeg, .png, .pdf" multiple style="display: none;">
+              <input id="images-selector-add-worksite" type="file" accept=".jpg, .jpeg, .png, .pdf" multiple style="display: none;" name="worksite-img[]">
             </div>
             <div class="img-container p-0">
               <div class="img-list p-0" id="image-list">
