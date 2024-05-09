@@ -45,7 +45,15 @@
     <h2 class="mt-3">เพิ่มหน้างานใหม่</h2>
     <div class="row mt-3 mb-3 justify-content-center">
       <form action="./action/insert-worksite.php" class="my-form p-0" method="POST" enctype="multipart/form-data">
-        <div class="col">
+        <div class="col input-group" id="user-item">
+          <span class="input-group-text"><img src="../static/icon/user.png" width="32"></span>
+          <div class="form-floating">
+            <input type="text" class="form-control" id="user-search" placeholder="รหัสประจำตัวลูกค้า" value="<?php echo isset($_GET['user-id']) ? $_GET['user-id'] : "" ?>" name="user-id" required>
+            <label for="user-search">รหัสประจำตัวลูกค้า</label>
+          </div>
+          <div class="my-user-selector" id="user-list"></div>
+        </div>
+        <div class="col mt-3">
           <p class="text-start mb-1">รูปหน้างาน</p>
           <div class="d-flex">
             <div class="img-add-btn p-0">
@@ -66,16 +74,8 @@
             </div>
           </div>
         </div>
-        <div id="show-all-img-name"></div>
-        <div class="col input-group mt-3" id="user-item">
-          <span class="input-group-text"><img src="../static/icon/user.png" width="32"></span>
-          <div class="form-floating">
-            <input type="text" class="form-control" id="user-search" placeholder="รหัสประจำตัวลูกค้า" value="<?php echo isset($_GET['user-id']) ? $_GET['user-id'] : "" ?>" name="user-id" required>
-            <label for="user-search">รหัสประจำตัวลูกค้า</label>
-          </div>
-          <div class="my-user-selector" id="user-list"></div>
-        </div>
-        <div class="row mt-3">
+        <div id="show-all-img-name" class="mt-1"></div>
+        <div class="row mt-2">
           <div class="col input-group mb-3"> 
             <div class="form-floating">
               <input type="text" class="form-control" placeholder="ชื่อหน้างาน" name="worksite-name" required>
@@ -92,7 +92,7 @@
         <div class="row">
           <div class="col input-group mb-3"> 
             <div class="form-floating">
-              <input type="number" class="form-control" placeholder="จำนวนกล้องวงจรปิด" name="camera-number" required>
+              <input type="number" class="form-control" placeholder="จำนวนกล้องวงจรปิด" name="camera-number" min="1" value="1" required>
               <label>จำนวนกล้องวงจรปิด</label>
             </div>
           </div>
