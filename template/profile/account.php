@@ -1,7 +1,7 @@
 <?php
   session_start();
   require_once('./action/load-account.php');
-  require_once('action/load-worksite.php');
+  require_once('action/load-worksites.php');
   $img_type = $_SESSION['user-img-type'];
 ?>
 
@@ -107,10 +107,10 @@
           <tr>
             <td>
               <div class="d-flex align-items-center">
-                <img src="../../static/image/test/2.jpg" alt="" style="width: 70px; height: 70px" class="rounded"/>
+                <img src="../../static/icon/worksite.png" alt="" style="width: 70px; height: 70px" class="rounded"/>
                 <div class="ms-3 d-flex flex-column">
                   <p class="m-0 text-muted" style="font-size: 12px;"><?php echo $worksite['worksite_id']; ?></p>
-                  <a href=""><p class="fw-bold mb-0"><?php echo $worksite['worksite_name']; ?></p></a>
+                  <a href="./worksite-details.php?user-id=<?php echo $user_id?>&worksite-id=<?php echo $worksite['worksite_id']?>"><p class="fw-bold mb-0"><?php echo $worksite['worksite_name']; ?></p></a>
                   <p class="text-muted m-0">Install Date : <?php echo $worksite['install_date']; ?></p>
                 </div>
               </div>

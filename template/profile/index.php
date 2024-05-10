@@ -1,6 +1,6 @@
 <?php
   require_once('action/load-user.php');
-  require_once('action/load-worksite.php');
+  require_once('action/load-worksites.php');
 ?>
 
 <!DOCTYPE html>
@@ -122,7 +122,7 @@
                 <img src="../../uploads/worksite-img/default.png" alt="" style="width: 70px; height: 70px" class="rounded"/>
                 <div class="ms-3 d-flex flex-column">
                   <p class="m-0 text-muted" style="font-size: 12px;"><?php echo $worksite['worksite_id']; ?></p>
-                  <a href=""><p class="fw-bold mb-0"><?php echo $worksite['worksite_name']; ?></p></a>
+                  <a href="./worksite-details.php?user-id=<?php echo $user_id?>&worksite-id=<?php echo $worksite['worksite_id']?>"><p class="fw-bold mb-0"><?php echo $worksite['worksite_name']; ?></p></a>
                   <p class="text-muted m-0">Install Date : <?php echo $worksite['install_date']; ?></p>
                 </div>
               </div>

@@ -82,7 +82,7 @@
           </td>
           <td>
             <p class="m-0 text-muted" style="font-size: 12px;"><?php echo $worksite['worksite_id']?></p>
-            <a href="./profile?user-id=<?php echo $worksite['worksite_id']; ?>"><p class="fw-bold mb-0"><?php echo $worksite['worksite_name']; ?></p></a>
+            <a href="./profile/worksite-details.php?worksite-id=<?php echo $worksite['worksite_id']; ?>"><p class="fw-bold mb-0"><?php echo $worksite['worksite_name']; ?></p></a>
             <p class="m-0 text-muted">วันที่ติดตั้ง : <?php echo $worksite['install_date']; ?></p>
           </td>
           <td>

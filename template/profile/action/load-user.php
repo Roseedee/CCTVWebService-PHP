@@ -1,6 +1,5 @@
 <?php
     require_once('../action/dbconnect.php');
-    session_start();
 
     $user_id = $_GET['user-id'];
     try {

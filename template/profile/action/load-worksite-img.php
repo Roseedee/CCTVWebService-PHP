@@ -7,13 +7,13 @@
             SELECT 
                 *
             FROM 
-                worksite w 
+                worksite_image w 
             WHERE 
                 w.worksite_id = " . $worksite_id . ";
         ");
         $stmt->execute();
     
-        $worksite = $stmt->fetchAll(PDO::FETCH_ASSOC)[0];
+        $worksite_img_list = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     } catch(PDOException $e) {
         echo "Connection failed: " . $e->getMessage();
