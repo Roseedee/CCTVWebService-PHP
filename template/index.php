@@ -1,10 +1,12 @@
 <?php
-  require_once("./action/load-users.php");
   session_start();
 
-  if(!isset($_SESSION['user_id'])) {
+  if(!isset($_SESSION['admin-user-id'])) {
     header('location: ../');
   }
+
+  require_once("./action/load-users.php");
+  require_once("./action/load-admin-info.php");
 ?>
 
 <!DOCTYPE html>
@@ -31,15 +33,13 @@
         </ul>
 
         <a href="./notify-services.php" class="btn btn-light me-3 btn-sm">แจ้งเตือน</a>
-        
-        <div class="dropdown text-end ms-2">
+        <?php echo $admin['name_lastname'] ?>
+        <div class="dropdown text-end ms-3 ">
           <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="../static/icon/user.png" alt="mdo" width="32" height="32" class="rounded-circle">
+            <img src="../uploads/user-img/<?php echo $admin['img_type'] ? $admin['user_id'] . "." . $admin['img_type'] : "default.png" ; ?>" alt="mdo" width="32" height="32" class="rounded-circle">
           </a>
           <ul class="dropdown-menu text-small">
-            <li><a class="dropdown-item" href="#">New project...</a></li>
-            <li><a class="dropdown-item" href="#">Settings</a></li>
-            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><a class="dropdown-item" href="./profile/?user-id=<?php echo $_SESSION['admin-user-id']?>">Profile</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="signout.php">Sign out</a></li>
           </ul>

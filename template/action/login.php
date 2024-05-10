@@ -19,7 +19,7 @@
         if ($stmt->rowCount() == 1) {
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
             
-            $_SESSION['user_id'] = $user['user_id'];
+            $_SESSION['admin-user-id'] = $user['user_id'];
             header("location: ../");
         } else {
             header("location: ../../index.php?login_error=1");

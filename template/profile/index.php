@@ -1,4 +1,10 @@
 <?php
+  session_start();
+
+  if(!isset($_SESSION['admin-user-id'])) {
+    header('location: ../');
+  }
+  
   require_once('action/load-user.php');
   require_once('action/load-worksites.php');
 ?>
@@ -27,18 +33,16 @@
           <li class="nav-item"><a href="../new-worksite.php" class="nav-link">เพิ่มหน้างานใหม่</a></li>
         </ul>
 
-        <a href="./notify-services.php" class="btn btn-light me-3 btn-sm">แจ้งเตือน</a>
-        
-        <div class="dropdown text-end ms-2">
+        <a href="../notify-services.php" class="btn btn-light me-3 btn-sm">แจ้งเตือน</a>
+        <?php echo $_SESSION['admin-user-name'] ?>
+        <div class="dropdown text-end ms-3 ">
           <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="../../static/icon/user.png" alt="mdo" width="32" height="32" class="rounded-circle">
+            <img src="../../uploads/user-img/<?php echo isset($_SESSION['admin-user-image']) ? $_SESSION['admin-user-image'] : "default.png" ; ?>" alt="mdo" width="32" height="32" class="rounded-circle">
           </a>
           <ul class="dropdown-menu text-small">
-            <li><a class="dropdown-item" href="#">New project...</a></li>
-            <li><a class="dropdown-item" href="#">Settings</a></li>
-            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><a class="dropdown-item" href="./?user-id=<?php echo $_SESSION['admin-user-id']?>">Profile</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Sign out</a></li>
+            <li><a class="dropdown-item" href="../signout.php">Sign out</a></li>
           </ul>
         </div>
       </div>
@@ -65,7 +69,7 @@
               <a class="nav-link" href="./password-manage.php?user-id=<?php echo $user_id; ?>">เปลี่ยนรหัสผ่าน</a>
             </li>
           </ul>
-          <button type="submit" class="btn btn-primary">บันทึก</button>
+          <!-- <button type="submit" class="btn btn-primary">บันทึก</button> -->
         </div>
         <div class="col mt-4">
           <div class="row">

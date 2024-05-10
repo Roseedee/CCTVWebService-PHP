@@ -10,7 +10,7 @@
   }
 
 
-  if(isset($_SESSION['user_id'])) {
+  if(isset($_SESSION['admin-user-id'])) {
     header('location: ./template/');
   }
 ?>
