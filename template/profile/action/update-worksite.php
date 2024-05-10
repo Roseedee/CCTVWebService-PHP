@@ -2,6 +2,7 @@
     require_once('../../action/dbconnect.php');
 
     $worksite_id = $_GET['worksite-id'];
+    $user_id = $_GET['user-id'];
 
     $worksite_name = $_POST['worksite-name'];
     $address = $_POST['address'];
@@ -39,10 +40,9 @@
             }
         }
         
-        header('location: ../worksite-details.php?worksite-id=' . $worksite_id);
+        header('location: ../worksite-details.php?worksite-id=' . $worksite_id . '&user-id=' . $user_id);
     } catch(PDOException $e) {
         echo "Insert worksite failed: " . $e->getMessage();
-        // header('location: ../new-user.php');
     }
 
     $con = null;
