@@ -38,7 +38,7 @@
   </header>
   
   <div class="container my-container mb-4">
-    <form action="./action/insert-user.php" method="POST">
+    <form action="./action/insert-user.php" method="POST" enctype="multipart/form-data">
       <h2 class="mt-3 text-center">เพิ่มลูกค้าใหม่</h2>
       <div class="col mt-2">
         <div class="col d-flex flex-column align-items-center justify-content-center p-3 mb-3">
