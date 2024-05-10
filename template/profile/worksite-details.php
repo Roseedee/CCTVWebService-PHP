@@ -1,6 +1,6 @@
 <?php
     require_once('action/load-worksite.php');
-    require_once('action/load-worksite-img.php')
+    require_once('action/load-worksite-img.php');
 ?>
 
 <!DOCTYPE html>
@@ -44,7 +44,7 @@
 
     <div class="container my-container text-center">
         <div class="row mt-3 mb-3 justify-content-center">
-            <form action="./action/insert-worksite.php" class="my-form p-0" method="POST" enctype="multipart/form-data">
+            <form action="./action/update-worksite.php?worksite-id=<?php echo $worksite_id?>" class="my-form p-0" method="POST" enctype="multipart/form-data">
                 <div class="d-flex align-items-center">
                     <a href="./?user-id=<?php echo $user_id?>" class="btn btn-primary btn-sm me-1" onclick="window.history.back()">ย้อนกลับ</a>
                 </div>
@@ -59,13 +59,14 @@
                     </div>
                     <div class="img-container p-0">
                     <div class="img-list p-0" id="image-list">
-                        <?php
-                            foreach($worksite_img_list as $image) {
-                        ?>
-                            <div class="img-list-item"><img src="../../uploads/worksite-img/<?php echo $image['img_url']?>" alt=""><div class="img-btn-delete"><img src="../../static/icon/trash-bin.png" alt=""></div></div>
-                        <?php
-                            }
-                        ?>
+                        <?php foreach ($worksite_img_list as $image) { ?>
+                            <div class="img-list-item">
+                                <img src="../../uploads/worksite-img/<?php echo $image['img_url']?>" alt="">
+                                <a href="./action/delete-worksite-img.php?image-id=<?php echo $image['img_id']?>&image-name=<?php echo $image['img_url']?>&worksite-id=<?php echo $worksite_id?>" class="img-btn-delete delete-img">
+                                    <img src="../../static/icon/trash-bin.png" alt="">
+                                </a>
+                            </div>
+                        <?php } ?>
                     </div>
                     </div>
                 </div>
@@ -118,5 +119,9 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <script src="../../static/js/worksite-details.js"></script>
+    <script>
+        
+    </script>
 </body>
 </html>

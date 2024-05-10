@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require_once('../action/dbconnect.php');
 
     $user_id = $_GET['user-id'];

@@ -1,7 +1,8 @@
 <?php
-    require_once('dbconnect.php');
+    require_once('../../action/dbconnect.php');
 
-    $user_id = $_POST['user-id'];
+    $worksite_id = $_GET['worksite-id'];
+
     $worksite_name = $_POST['worksite-name'];
     $address = $_POST['address'];
     $camera_number = $_POST['camera-number'];
@@ -9,16 +10,14 @@
     $other_details = $_POST['other-details'];
 
     try {
-        $stmt = $con->prepare("INSERT INTO worksite (worksite_name, address, camera_number, install_date, other_details, user_id) VALUES (:worksite_name, :address, :camera_number, :install_date, :other_details, :user_id)");
+        $stmt = $con->prepare("UPDATE worksite SET worksite_name = :worksite_name, address = :address, camera_number = :camera_number, install_date = :install_date, other_details = :other_details WHERE worksite_id = :worksite_id");
         $stmt->bindParam(':worksite_name', $worksite_name);
         $stmt->bindParam(':address', $address);
         $stmt->bindParam(':camera_number', $camera_number);
         $stmt->bindParam(':install_date', $install_date);
         $stmt->bindParam(':other_details', $other_details);
-        $stmt->bindParam(':user_id', $user_id);
+        $stmt->bindParam(':worksite_id', $worksite_id);
         $stmt->execute();
-        
-        $worksite_id = $con->lastInsertId();
 
         if(isset($_FILES['worksite-img'])) {
             $files = $_FILES['worksite-img'];
@@ -36,14 +35,14 @@
                 $stmt->bindParam(':worksite_id', $worksite_id);
                 $stmt->execute();
                 
-                move_uploaded_file($file_tmp, "../../uploads/worksite-img/" . $new_file_name);
+                move_uploaded_file($file_tmp, "../../../uploads/worksite-img/" . $new_file_name);
             }
         }
         
-        header('location: ../');
+        header('location: ../worksite-details.php?worksite-id=' . $worksite_id);
     } catch(PDOException $e) {
         echo "Insert worksite failed: " . $e->getMessage();
-        header('location: ../new-user.php');
+        // header('location: ../new-user.php');
     }
 
     $con = null;
