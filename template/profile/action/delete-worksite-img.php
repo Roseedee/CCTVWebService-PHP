@@ -3,6 +3,7 @@
     $img_id = $_GET['image-id'];
     $img_url = $_GET['image-name'];
     $worksite_id = $_GET['worksite-id'];
+    $user_id = $_GET['user-id'];
 
     $stmt = $con->prepare("DELETE FROM worksite_image WHERE img_id = :img_id");
     $stmt->bindParam(':img_id', $img_id);
@@ -19,7 +20,7 @@
             }
         }
 
-        header('location: ./../worksite-details.php?worksite-id=' . $worksite_id);
+        header('location: ./../worksite-details.php?worksite-id=' . $worksite_id . '&user-id=' . $user_id);
     } else {
         echo "Failed to delete image.";
     }

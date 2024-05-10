@@ -64,7 +64,7 @@
                         <?php foreach ($worksite_img_list as $image) { ?>
                             <div class="img-list-item">
                                 <img src="../../uploads/worksite-img/<?php echo $image['img_url']?>" alt="">
-                                <a href="./action/delete-worksite-img.php?image-id=<?php echo $image['img_id']?>&image-name=<?php echo $image['img_url']?>&worksite-id=<?php echo $worksite_id?>" class="img-btn-delete delete-img">
+                                <a href="./action/delete-worksite-img.php?image-id=<?php echo $image['img_id']?>&image-name=<?php echo $image['img_url']?>&worksite-id=<?php echo $worksite_id?>&user-id=<?php echo $user_id?>" class="img-btn-delete delete-img">
                                     <img src="../../static/icon/trash-bin.png" alt="">
                                 </a>
                             </div>
