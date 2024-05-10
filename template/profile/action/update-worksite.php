@@ -20,7 +20,7 @@
         $stmt->bindParam(':worksite_id', $worksite_id);
         $stmt->execute();
 
-        if(isset($_FILES['worksite-img'])) {
+        if(isset($_FILES['worksite-img']) && !empty($_FILES['worksite-img']['name'][0])) {
             $files = $_FILES['worksite-img'];
             
             for($i = 0; $i < count($files['name']); $i++) {
