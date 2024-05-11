@@ -5,7 +5,6 @@
     header('location: ../');
   }
   
-  require_once("./action/load-admin-info.php");
   require_once("./action/load-notifications.php");
 ?>
 
@@ -19,7 +18,7 @@
   <link href="../static/css/main.css" rel="stylesheet">
 </head>
 <body>
-  <header class="p-3 mb-3 border-bottom">
+<header class="p-3 mb-3 border-bottom">
     <div class="container">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
         <a href="./" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
