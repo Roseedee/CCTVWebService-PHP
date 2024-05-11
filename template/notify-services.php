@@ -6,6 +6,7 @@
   }
   
   require_once("./action/load-admin-info.php");
+  require_once("./action/load-notifications.php");
 ?>
 
 <!DOCTYPE html>
@@ -69,37 +70,63 @@
         </tr>
       </thead>
       <tbody>
-        <!-- <tr>
+        <?php
+          foreach($notification_list as $notification) {
+        ?>
+        <tr>
           <td>
             <div class="d-flex align-items-center">
-              <img src="../static/icon/user.png" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+              <img src="../uploads/user-img/<?php echo $notification['img_type'] ? $notification['user_id'] . "." . $notification['img_type'] : "default.png" ; ?>" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
               <div class="ms-3 d-flex flex-column">
-                <p class="m-0 text-muted" style="font-size: 12px;">0001</p>
-                <a href=""><p class="fw-bold mb-0">John Doe(John)</p></a>
-                <p class="text-muted m-0">012-345-6789</p>
+                <p class="m-0 text-muted" style="font-size: 12px;"><?php echo $notification['user_id']?></p>
+                <a href="./profile/?user-id=<?php echo $notification['user_id']?>"><p class="fw-bold mb-0"><?php echo $notification['name_lastname']?></p></a>
+                <p class="text-muted m-0"><?php echo strlen($notification['phone']) == 0 ? $notification['email'] : $notification['phone']?></p>
               </div>
             </div>
           </td>
           <td>
-            <p class="m-0 text-muted" style="font-size: 12px;">0001</p>
-            บ้าน
+            <p class="m-0 text-muted" style="font-size: 12px;"><?php echo $notification['worksite_id']?></p>
+            <a href="./profile/worksite-details.php?worksite-id=<?php echo $notification['worksite_id']?>&user-id=<?php echo $notification['user_id']?>"><p class="fw-bold mb-0"><?php echo $notification['worksite_name']?></p></a>
+            <p class="text-muted m-0">วันที่แจ้ง : 
+              <?php 
+                $datetime_str = $notification['noti_datetime'];
+                $datetime = new DateTime($datetime_str);
+                $date = $datetime->format('d/m/y');
+                echo $date;
+              ?>
+            </p>
           </td>
           <td>
-            <a href="">18.3170581,99.3986862</a>
+            <?php echo $notification['address']?>
           </td>
           <td>
-            กล้องหลังบ้านมองไม่เห็น
+          <?php echo $notification['notification']?>
           </td>
           
           <td class="text-center">
             <div class="d-flex align-items-center justify-content-center">
-              <div class="me-2" style="width: 5px; height: 5px; border-radius: 50%; background-color: yellow;"></div>อยู่ในประกัน
+              <?php
+                if($notification['install_date_status']) {
+                  echo '<div class="me-2" style="width: 5px; height: 5px; border-radius: 50%; background-color: yellow;"></div>อยู่ในประกัน';
+                }else {
+                  echo '<div class="me-2" style="width: 5px; height: 5px; border-radius: 50%; background-color: red;"></div>หมดประกันแล้ว';
+                }
+              ?>
             </div>
           </td>
           <td class="text-center">
-            <a class="btn btn-primary btn-sm btn-rounded">Service</a>
+            <?php
+              if($notification['noti_status']) {
+                echo '<a class="btn btn-primary btn-sm btn-rounded">Service</a>';
+              }else {
+                echo '<a class="btn btn-light btn-sm btn-rounded disabled">Serviced</a>';
+              }
+            ?>
           </td>
-        </tr> -->
+        </tr>
+        <?php
+          }
+        ?>
       </tbody>
     </table>
   </div>

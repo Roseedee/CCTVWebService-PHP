@@ -49,7 +49,7 @@
         <div class="row mt-3 mb-3 justify-content-center">
             <form action="./action/update-worksite.php?worksite-id=<?php echo $worksite_id?>&user-id=<?php echo $user_id?>" class="my-form p-0" method="POST" enctype="multipart/form-data">
                 <div class="d-flex align-items-center justify-content-between">
-                    <a href="./?user-id=<?php echo $user_id?>" class="btn btn-primary btn-sm me-1" onclick="window.history.back()">ย้อนกลับ</a>
+                    <a href="./?user-id=<?php echo $user_id?>" class="btn btn-primary btn-sm me-1">กลับไปที่หน้าโปรไฟล์</a>
                     <a href="./action/delete-worksite.php?worksite-id=<?php echo $worksite_id?>&user-id=<?php echo $user_id?>" class="btn btn-danger btn-sm me-1">ลบหน้างาน</a>
                 </div>
                 <div class="col mt-3">
