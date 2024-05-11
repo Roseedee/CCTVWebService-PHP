@@ -8,9 +8,9 @@
 - [x] Add-Customer(account type customer only).
 - [x] Add-Worksite.
 - [ ] Add-Notification.
-- [ ] Customer-profile.
-- [ ] Worksite-details.
-- [ ] Sign-Out(now only in dashboard ```./template/index.php```).
+- [x] Customer-profile.
+- [x] Worksite-details.
+- [x] Sign-Out
 
 ## Features
 - Collect customer info.
