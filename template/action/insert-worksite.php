@@ -43,7 +43,7 @@
         header('location: ../');
     } catch(PDOException $e) {
         echo "Insert worksite failed: " . $e->getMessage();
-        header('location: ../new-user.php');
+        header('location: ../new-worksite.php');
     }
 
     $con = null;
