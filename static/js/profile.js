@@ -8,3 +8,12 @@ document.getElementById('img-input').addEventListener('change', function(event) 
         reader.readAsDataURL(file);
     }
 })
+
+const inputFields = document.querySelectorAll('.about-user input');
+
+inputFields.forEach(inputField => {
+  inputField.addEventListener('input', () => {
+    // Display the submit button
+    document.getElementById('submitBtn').style.display = 'block';
+  });
+});

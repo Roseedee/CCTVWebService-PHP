@@ -51,8 +51,8 @@
 
   <div class="container my-container">
     <h2 class="mt-3 text-center">โปรไฟล์</h2>
-    <form class="about-user mt-3">
-      <input type="file" name="" id="img-input" style="display: none;">
+    <form action="./action/update-user.php?img-type=<?php echo $user_info[0]['img_type'];?>&user-id=<?php echo $user_id ?>" class="about-user mt-3" method="POST" enctype="multipart/form-data">
+      <input type="file" name="user-img" id="img-input" style="display: none;">
       <div tool class="user-img" onclick="document.getElementById('img-input').click()">
         <img src="../../uploads/user-img/<?php echo $user_info[0]['img_type'] != NULL ? $user_id . "." . $user_info[0]['img_type'] : 'default.png' ; ?>" alt="" id="user-img">
       </div>
@@ -69,19 +69,19 @@
               <a class="nav-link" href="./password-manage.php?user-id=<?php echo $user_id; ?>">เปลี่ยนรหัสผ่าน</a>
             </li>
           </ul>
-          <!-- <button type="submit" class="btn btn-primary">บันทึก</button> -->
+          <button type="submit" class="btn btn-primary" id="submitBtn" style="display: none;">บันทึก</button>
         </div>
         <div class="col mt-4">
           <div class="row">
             <div class="col input-group mb-3"> 
               <div class="form-floating">
-                <input type="text" class="form-control" placeholder="ชื่อ-นามสกุล" value="<?php echo $user_info[0]['name_lastname']; ?>">
+                <input type="text" class="form-control" placeholder="ชื่อ-นามสกุล" value="<?php echo $user_info[0]['name_lastname']; ?>" name="name_lastname" id="name_lastname">
                 <label>ชื่อ-นามสกุล</label>
               </div>
             </div>
             <div class="col input-group mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" placeholder="เบอร์โทร" value="<?php echo $user_info[0]['phone']; ?>">
+                <input type="text" class="form-control" placeholder="เบอร์โทร" value="<?php echo $user_info[0]['phone']; ?>" name="phone" id="phone">
                 <label>เบอร์โทร</label>
               </div>
             </div>
@@ -89,13 +89,13 @@
           <div class="row">
             <div class="col input-group mb-3"> 
               <div class="form-floating">
-                <input type="text" class="form-control" placeholder="อีเมล์" value="<?php echo $user_info[0]['email']; ?>">
+                <input type="text" class="form-control" placeholder="อีเมล์" value="<?php echo $user_info[0]['email']; ?>" name="email" id="email">
                 <label>อีเมล์</label>
               </div>
             </div>
             <div class="col input-group mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" placeholder="ที่อยู่" value="<?php echo $user_info[0]['address']; ?>">
+                <input type="text" class="form-control" placeholder="ที่อยู่" value="<?php echo $user_info[0]['address']; ?>" name="address" id="address">
                 <label>ที่อยู่</label>
               </div>
             </div>
@@ -173,5 +173,8 @@
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
   <script src="../../static/js/profile.js"></script>
+  <script>
+    
+  </script>
 </body>
 </html>
