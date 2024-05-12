@@ -100,7 +100,7 @@
           <tr>
             <th>หน้างาน</th>
             <th>รายละเอียดเกี่ยวกับหน้างาน</th>
-            <th class="text-center">ที่อยู่</th>
+            <th>ที่อยู่</th>
             <th class="text-center">จำนวนกล้อง</th>
             <th class="text-center">เซอร์วิส(ครั้ง)</th>
             <th class="text-center">สถานะ</th>
@@ -117,14 +117,14 @@
                 <div class="ms-3 d-flex flex-column">
                   <p class="m-0 text-muted" style="font-size: 12px;"><?php echo $worksite['worksite_id']; ?></p>
                   <a href="./worksite-details.php?user-id=<?php echo $user_id?>&worksite-id=<?php echo $worksite['worksite_id']?>"><p class="fw-bold mb-0"><?php echo $worksite['worksite_name']; ?></p></a>
-                  <p class="text-muted m-0">Install Date : <?php echo $worksite['install_date']; ?></p>
+                  <p class="text-muted m-0">วันที่ติดตั้ง : <?php echo $worksite['install_date']; ?></p>
                 </div>
               </div>
             </td>
             <td>
             <?php echo $worksite['other_details']; ?>
             </td>
-            <td class="text-center">
+            <td>
               <?php echo $worksite['address']; ?>
             </td>
             <td class="text-center">

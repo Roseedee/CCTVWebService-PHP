@@ -46,8 +46,8 @@
     </div>
   </header>
   
-  <div class="container my-container mb-4">
-    <form action="./action/insert-user.php" method="POST" enctype="multipart/form-data">
+  <center class="container my-container mb-4">
+    <form action="./action/insert-user.php" method="POST" class="my-form" enctype="multipart/form-data">
       <h2 class="mt-3 text-center">เพิ่มลูกค้าใหม่</h2>
       <div class="col mt-2">
         <div class="col d-flex flex-column align-items-center justify-content-center p-3 mb-3">
@@ -56,7 +56,7 @@
           </div>
           <input type="file" class="form-control" id="image-selector-add-user" name="user_img" style="display: none;">
         </div>
-        <div class="col container-sm">
+        <div class="col container-sm p-0">
           <p class="fw-bold text-start">ข้อมูลส่วนตัว</p>
           <div class="row">
             <div class="col input-group mb-3"> 
@@ -107,7 +107,7 @@
         </div>
       </div>
     </form>
-  </div>
+</center>
 
   <footer class="pt-3">
     <ul class="nav align-items-center justify-content-center mb-2">
