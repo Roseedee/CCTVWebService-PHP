@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Loading Progress</title>
+  <style>
+    /* Style for the progress bar */
+    #progressBar {
+      width: 100%;
+      height: 20px;
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+    }
+
+    #progress {
+      width: 0%;
+      height: 100%;
+      background-color: #4caf50;
+    }
+
+    /* Style for the image container */
+    #imageContainer {
+      margin-top: 20px;
+    }
+
+    #loadedImage {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<div id="progressBar">
+  <div id="progress"></div>
+</div>
+
+<div id="imageContainer">
+  <img src="https://coderpad.io/wp-content/uploads/2022/09/coderpad-blogspot-addeventlistener-adjustment-1024x683-1.png" id="loadingImage" alt="Loading..." style="display: none;">
+  <img src="https://coderpad.io/wp-content/uploads/2022/09/coderpad-blogspot-addeventlistener-adjustment-1024x683-1.png" id="loadedImage" alt="Loaded Image">
+</div>
+
+<script>
+  const progressBar = document.getElementById('progress');
+  const loadingImage = document.getElementById('loadingImage');
+  const loadedImage = document.getElementById('loadedImage');
+
+  // Load event listener for the image
+  loadingImage.addEventListener('load', () => {
+    // Hide the progress bar when the image is fully loaded
+    progressBar.style.display = 'none';
+
+    // Display the loaded image
+    loadedImage.src = loadingImage.src;
+    loadedImage.style.display = 'inline';
+  });
+
+  // Progress event listener for the image
+  loadingImage.addEventListener('progress', (event) => {
+    if (event.lengthComputable) {
+      // Calculate the progress percentage
+      const percentComplete = (event.loaded / event.total) * 100;
+      // Update the width of the progress bar
+      progressBar.style.width = percentComplete + '%';
+    }
+  });
+</script>
+
+</body>
+</html>
