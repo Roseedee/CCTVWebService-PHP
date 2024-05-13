@@ -48,8 +48,7 @@
   <div class="container my-container">
     <h2 class="mt-3 text-center">โปรไฟล์</h2>
     <form class="about-user mt-3" action="./action/update-account.php?img-type=<?php echo $img_type?>&user-id=<?php echo $user_id;?>" method="POST" enctype="multipart/form-data">
-      <input type="file" name="" id="img-input" style="display: none;">
-      <div tool class="user-img" onclick="document.getElementById('img-input').click()">
+      <div tool class="user-img">
         <img src="../../uploads/user-img/<?php echo $img_type != NULL ? $user_id . "." . $img_type : 'default.png' ; ?>" alt="" id="user-img">
       </div>
       <div class="user-info ps-5">
@@ -155,6 +154,5 @@
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
-  <script src="../../static/js/profile.js"></script>
 </body>
 </html>
