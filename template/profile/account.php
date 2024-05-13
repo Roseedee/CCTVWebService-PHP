@@ -47,7 +47,7 @@
 
   <div class="container my-container">
     <h2 class="mt-3 text-center">โปรไฟล์</h2>
-    <form class="about-user mt-3">
+    <form class="about-user mt-3" action="./action/update-account.php?img-type=<?php echo $img_type?>&user-id=<?php echo $user_id;?>" method="POST" enctype="multipart/form-data">
       <input type="file" name="" id="img-input" style="display: none;">
       <div tool class="user-img" onclick="document.getElementById('img-input').click()">
         <img src="../../uploads/user-img/<?php echo $img_type != NULL ? $user_id . "." . $img_type : 'default.png' ; ?>" alt="" id="user-img">
@@ -65,19 +65,19 @@
               <a class="nav-link" href="./password-manage.php?user-id=<?php echo $user_id; ?>">เปลี่ยนรหัสผ่าน</a>
             </li>
           </ul>
-          <!-- <button type="submit" class="btn btn-primary">บันทึก</button> -->
+          <button type="submit" class="btn btn-primary" id="submitBtn" style="display:none;">บันทึก</button>
         </div>
         <div class="col mt-4">
           <div class="row">
             <div class="col input-group mb-3"> 
               <div class="form-floating">
-                <input type="text" class="form-control" placeholder="ชื่อผู้ใช้" value="<?php echo $acc_info[0]['username']; ?>">
+                <input type="text" class="form-control disabled" placeholder="ชื่อผู้ใช้" value="<?php echo $acc_info[0]['username'];?>" readonly>
                 <label>ชื่อผู้ใช้</label>
               </div>
             </div>
             <div class="col input-group mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" placeholder="รหัสผ่าน"  value="<?php echo $acc_info[0]['password']; ?>">
+                <input type="text" class="form-control" placeholder="รหัสผ่าน"  value="<?php echo $acc_info[0]['password']; ?>" readonly>
                 <label>รหัสผ่าน</label>
               </div>
             </div>
@@ -106,6 +106,7 @@
             <td>
               <div class="d-flex align-items-center">
                 <img src="../../static/icon/worksite.png" alt="" style="width: 70px; height: 70px" class="rounded"/>
+                <input type="file" name="user-img" id="img-input" style="display: none;">
                 <div class="ms-3 d-flex flex-column">
                   <p class="m-0 text-muted" style="font-size: 12px;"><?php echo $worksite['worksite_id']; ?></p>
                   <a href="./worksite-details.php?user-id=<?php echo $user_id?>&worksite-id=<?php echo $worksite['worksite_id']?>"><p class="fw-bold mb-0"><?php echo $worksite['worksite_name']; ?></p></a>
