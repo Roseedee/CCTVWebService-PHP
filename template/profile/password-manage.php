@@ -1,7 +1,9 @@
 <?php
   session_start();
   $user_id = $_GET['user-id'];
-  require_once('action/load-worksites.php');
+  require_once('./action/load-account.php');
+  require_once('./action/load-worksites.php');
+  $_SESSION['current-password'] = $acc_info[0]['password'];
   $img_type = $_SESSION['user-img-type']
 ?>
 
@@ -47,7 +49,7 @@
 
   <div class="container my-container">
     <h2 class="mt-3 text-center">โปรไฟล์</h2>
-    <form class="about-user mt-3">
+    <form class="about-user mt-3" action="./action/update-password.php?img-type=<?php echo $img_type?>&user-id=<?php echo $user_id;?>" method="POST" enctype="multipart/form-data">
       <input type="file" name="" id="img-input" style="display: none;">
       <div tool class="user-img" onclick="document.getElementById('img-input').click()">
         <img src="../../uploads/user-img/<?php echo $img_type != NULL ? $user_id . "." . $img_type : 'default.png' ; ?>" alt="" id="user-img">
@@ -65,30 +67,32 @@
                 <a class="nav-link active" href="">เปลี่ยนรหัสผ่าน</a>
               </li>
           </ul>
-          <!-- <button type="submit" class="btn btn-primary">บันทึก</button> -->
+          <button type="submit" class="btn btn-primary" id="submitBtn" style="display: none">บันทึก</button>
         </div>
         <div class="col mt-4">
           <div class="row">
             <div class="col input-group mb-3"> 
               <div class="form-floating">
-                <input type="text" class="form-control" placeholder="รหัสผ่านเดิม">
+                <input type="text" class="form-control" placeholder="รหัสผ่านเดิม" name="old-password" value="<?php echo isset($_GET['current-password']) ? $_GET['current-password'] : '';?>" required>
                 <label>รหัสผ่านเดิม</label>
               </div>
             </div>
+            <span class="text-muted"><?php echo isset($_GET['password-incorrect']) ? $_GET['password-incorrect'] : "";?></span>
           </div>
           <div class="row">
             <div class="col input-group mb-3"> 
               <div class="form-floating">
-                <input type="text" class="form-control" placeholder="รหัสผ่านใหม่">
+                <input type="text" class="form-control" placeholder="รหัสผ่านใหม่" name="new-password" required>
                 <label>รหัสผ่านใหม่</label>
               </div>
             </div>
             <div class="col input-group mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" placeholder="ยืนยันรหัสผ่าน">
+                <input type="text" class="form-control" placeholder="ยืนยันรหัสผ่าน" name="confirm-password" required>
                 <label>ยืนยันรหัสผ่าน</label>
               </div>
             </div>
+            <span class="text-muted"><?php echo isset($_GET['password-notmatch']) ? $_GET['password-notmatch'] : "";?></span>
           </div>
         </div>
       </div>
