@@ -5,7 +5,7 @@
     header('location: ../');
   }
   
-  require_once('action/load-worksite.php');
+  require_once('action/load-worksites.php');
 ?>
 
 <!DOCTYPE html>
