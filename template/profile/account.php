@@ -66,8 +66,9 @@
           </ul>
           <button type="submit" class="btn btn-primary" id="submitBtn" style="display:none;">บันทึก</button>
         </div>
-        <div class="col mt-4">
-          <div class="row">
+        <div class="col mt-2">
+          <span class="text-muted">ไม่สามารถแก้ไขได้</span>
+          <div class="row mt-2">
             <div class="col input-group mb-3"> 
               <div class="form-floating">
                 <input type="text" class="form-control disabled" placeholder="ชื่อผู้ใช้" value="<?php echo $acc_info[0]['username'];?>" readonly>
