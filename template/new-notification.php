@@ -4,8 +4,13 @@
   if(!isset($_SESSION['admin-user-id'])) {
     header('location: ../');
   }
-  
+
   require_once('action/load-user.php');
+  
+  if(isset($_GET['user-id'])) {
+    require_once('action/load-worksite.php');
+  }
+  
 ?>
 
 
@@ -52,17 +57,27 @@
   <div class="container my-container text-center">
     <h2 class="mt-3">แจ้งปัญหากล้องวงจรปิด</h2>
     <div class="row mt-3 mb-3 justify-content-center">
-      <form action="./action/insert-worksite.php" class="my-form p-0" method="POST" enctype="multipart/form-data">
-        <div class="col input-group" id="user-item">
-          <span class="input-group-text"><img src="../static/icon/user.png" width="32"></span>
-          <div class="form-floating">
-            <input type="text" class="form-control" id="user-search" placeholder="รหัสประจำตัวลูกค้า" value="<?php echo isset($_GET['user-id']) ? $_GET['user-id'] : "" ?>" name="user-id" required>
-            <label for="user-search">รหัสประจำตัวลูกค้า</label>
-          </div>
-          <div class="my-user-selector" id="user-list"></div>
+      <form action="" class="my-form p-0" method="POST" enctype="multipart/form-data">
+        <div class="row" id="my-dropdown">
+            <div class="col input-group">
+              <span class="input-group-text"><img src="../static/icon/user.png" width="32"></span>
+              <div class="form-floating">
+                <input type="text" class="form-control" id="user-search" placeholder="เลือกลูกค้า" value="<?php echo isset($_GET['user-id']) ? $_GET['user-id'] : "" ?>" name="user-id" required>
+                <label for="user-search">เลือกลูกค้า</label>
+              </div>
+            </div>
+            <div class="col input-group">
+                <span class="input-group-text"><img src="../static/icon/worksite.png" width="32"></span>
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="worksite-search" placeholder="เลือกหน้างาน" value="<?php echo isset($_GET['worksite-id']) ? $_GET['worksite-id'] : "" ?>" name="worksite-id" required>
+                    <label for="worksite-search">เลือกหน้างาน</label>
+                </div>
+            </div>
+            <div class="my-user-selector" id="user-list"></div>
+            <div class="my-user-selector" id="worksite-list"></div>
         </div>
         <div class="col mt-3">
-          <p class="text-start mb-1">รูปหน้างาน</p>
+          <p class="text-start mb-1">กดพื่อเพิ่มรูป สามารถเพิ่มรูปได้แค่รูปเดียว</p>
           <div class="d-flex">
             <div class="img-add-btn p-0">
               <label for="images-selector-add-worksite" class="file-upload-label">
@@ -77,39 +92,19 @@
           </div>
         </div>
         <div id="show-all-img-name" class="mt-1"></div>
-        <div class="row mt-2">
-          <div class="col input-group mb-3"> 
-            <div class="form-floating">
-              <input type="text" class="form-control" placeholder="ชื่อหน้างาน" name="worksite-name" required>
-              <label>ชื่อหน้างาน</label>
-            </div>
-          </div>
+        <div class="col mt-2">
           <div class="col input-group mb-3">
             <div class="form-floating">
-              <input type="text" class="form-control" placeholder="ที่อยู่หน้างาน" name="address" required>
-              <label>ที่อยู่หน้างาน</label>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col input-group mb-3"> 
-            <div class="form-floating">
-              <input type="number" class="form-control" placeholder="จำนวนกล้องวงจรปิด" name="camera-number" min="1" value="1" required>
-              <label>จำนวนกล้องวงจรปิด</label>
-            </div>
-          </div>
-          <div class="col input-group mb-3">
-            <div class="form-floating">
-              <input type="date" class="form-control" placeholder="วันที่ติดตั้ง" id="install-date" name="install-date" required>
-              <label>วันที่ติดตั้ง</label>
+              <input type="date" class="form-control" placeholder="วันที่แจ้งปัญหา" id="install-date" name="install-date" required>
+              <label>วันที่แจ้งปัญหา</label>
             </div>
           </div>
         </div>
         <div class="col">
-          <textarea name="other-details" id="" class="form-control" rows="5" style="padding: 10px; border-radius: 5px;" placeholder="รายละเอียดเพิ่มเติม"></textarea>
+          <textarea name="other-details" id="" class="form-control" rows="5" style="padding: 10px; border-radius: 5px;" placeholder="แจ้งรายละเอียดปัญหา"></textarea>
         </div>
         <div class="d-grid gap-2 mt-3">
-          <button class="btn btn-primary btn-lg" type="submit">บันทึกข้อมูล</button>
+          <button class="btn btn-primary btn-lg" type="submit">แจ้งปัญหา</button>
         </div>
       </form>
     </div>
@@ -124,7 +119,7 @@
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
-  <script src="../static/js/new-worksite.js"></script>
+  <script src="../static/js/new-notification.js"></script>
   <script>
     
     var today = new Date();
@@ -135,51 +130,94 @@
     document.getElementById('install-date').value = formattedDate;
 
     function onLoadUser() {
-      let user_list = document.getElementById('user-list');
-      user_list.innerHTML = '';
-      
-      var users = [
-        <?php
-          foreach ($customers as $customer) {
-        ?>
-          {
-              userId: "<?php echo $customer['user_id']?>",
-              userName: "<?php echo $customer['name_lastname']?>",
-              imgType: '<?php echo $customer['img_type']?>'
-          },
-        <?php
-          }
-        ?>
-      ];
-      
-      users.forEach(user => {
-          const userItem = document.createElement("a");
-          userItem.href = "./new-worksite.php?user-id=" + user.userId;
-          userItem.classList.add("user-selector-item");
-          if(user.imgType) {
-            userItem.innerHTML = `
-                <div class="about-user">
-                    <p class="user-id m-0 text-muted">${user.userId}</p>
-                    <p class="user-name m-0">${user.userName}</p>
-                </div>
-                <div class="user-img">
-                    <img src="../uploads/user-img/${user.userId}.${user.imgType}" alt="">
-                </div>
-            `;
-          }else {
-            userItem.innerHTML = `
-                <div class="about-user">
-                    <p class="user-id m-0 text-muted">${user.userId}</p>
-                    <p class="user-name m-0">${user.userName}</p>
-                </div>
-                <div class="user-img">
-                    <img src="../uploads/user-img/default.png" alt="">
-                </div>
-            `;
-          }
+        let user_list = document.getElementById('user-list');
+        user_list.innerHTML = '';
 
-          user_list.appendChild(userItem);
-      });
+        var users = [
+            <?php
+            foreach ($customers as $customer) {
+            ?>
+            {
+                userId: "<?php echo $customer['user_id']?>",
+                userName: "<?php echo $customer['name_lastname']?>",
+                imgType: '<?php echo $customer['img_type']?>'
+            },
+            <?php
+            }
+            ?>
+        ];
+        
+        users.forEach(user => {
+            const userItem = document.createElement("a");
+            userItem.href = "./new-notification.php?user-id=" + user.userId;
+            userItem.classList.add("user-selector-item");
+            if(user.imgType) {
+                userItem.innerHTML = `
+                    <div class="about-user">
+                        <p class="user-id m-0 text-muted">${user.userId}</p>
+                        <p class="user-name m-0">${user.userName}</p>
+                    </div>
+                    <div class="user-img">
+                        <img src="../uploads/user-img/${user.userId}.${user.imgType}" alt="">
+                    </div>
+                `;
+            }else {
+                userItem.innerHTML = `
+                    <div class="about-user">
+                        <p class="user-id m-0 text-muted">${user.userId}</p>
+                        <p class="user-name m-0">${user.userName}</p>
+                    </div>
+                    <div class="user-img">
+                        <img src="../uploads/user-img/default.png" alt="">
+                    </div>
+                `;
+            }
+
+            user_list.appendChild(userItem);
+        });
+
+        <?php
+            if(isset($_GET['user-id'])) {
+                echo "1";
+        ?>
+
+        var worksites = [
+            <?php
+            foreach ($worksite_list as $worksite) {
+            ?>
+                {
+                    worksiteId: "<?php echo $worksite['worksite_id']?>",
+                    worksiteName: "<?php echo $worksite['worksite_name']?>",
+                    userId: "<?php echo $worksite['user_id']?>"
+                },
+            <?php
+            }
+            ?>
+        ]
+
+        let worksite_list = document.getElementById('worksite-list');
+        worksite_list.innerHTML = '';
+
+        worksites.forEach(worksite => {
+            const userItem = document.createElement("a");
+            userItem.href = "./new-notification.php?worksite-id=" + worksite.worksiteId + "&user-id=" + worksite.userId;
+            userItem.classList.add("user-selector-item");
+            userItem.innerHTML = `
+                    <div class="about-user">
+                        <p class="user-id m-0 text-muted">${worksite.worksiteId}</p>
+                        <p class="user-name m-0">${worksite.worksiteName}</p>
+                    </div>
+                    <div class="user-img">
+                        <img src="../static/icon/worksite.png" alt="">
+                    </div>
+                `;
+
+            worksite_list.appendChild(userItem);
+        });
+
+        <?php
+            }
+        ?>
     }
   </script>
 </body>
