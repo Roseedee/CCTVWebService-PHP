@@ -56,8 +56,8 @@
   
   <div class="container my-container text-center">
     <h2 class="mt-3">แจ้งปัญหากล้องวงจรปิด</h2>
-    <div class="row mt-3 mb-3 justify-content-center">
-      <form action="" class="my-form p-0" method="POST" enctype="multipart/form-data">
+    <div class="row mt-4 mb-3 justify-content-center">
+      <form action="./action/insert-notification.php" class="my-form p-0" method="POST" enctype="multipart/form-data">
         <div class="row" id="my-dropdown">
             <div class="col input-group">
               <span class="input-group-text"><img src="../static/icon/user.png" width="32"></span>
@@ -85,7 +85,7 @@
               <label for="images-selector-add-worksite" class="file-upload-label">
                 <img src="../static/icon/add.png" alt="">
               </label>
-              <input id="images-selector-add-worksite" type="file" accept=".jpg, .jpeg, .png, .pdf" style="display: none;" name="worksite-img[]">
+              <input id="images-selector-add-worksite" type="file" accept=".jpg, .jpeg, .png, .pdf" style="display: none;" name="notification-img">
             </div>
             <div class="img-container p-0">
               <div class="img-list p-0" id="image-list">
@@ -95,15 +95,7 @@
         </div>
         <div id="show-all-img-name" class="mt-1"></div>
         <div class="col mt-2">
-          <div class="col input-group mb-3">
-            <div class="form-floating">
-              <input type="date" class="form-control" placeholder="วันที่แจ้งปัญหา" id="install-date" name="install-date" required>
-              <label>วันที่แจ้งปัญหา</label>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <textarea name="other-details" id="" class="form-control" rows="5" style="padding: 10px; border-radius: 5px;" placeholder="แจ้งรายละเอียดปัญหา"></textarea>
+          <textarea name="notification-details" id="" class="form-control" rows="5" style="padding: 10px; border-radius: 5px;" placeholder="แจ้งรายละเอียดปัญหา"></textarea>
         </div>
         <div class="d-grid gap-2 mt-3">
           <button class="btn btn-primary btn-lg" type="submit">แจ้งปัญหา</button>
@@ -123,14 +115,6 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
   <script src="../static/js/new-notification.js"></script>
   <script>
-    
-    var today = new Date();
-    var year = today.getFullYear();
-    var month = String(today.getMonth() + 1).padStart(2, '0');
-    var day = String(today.getDate()).padStart(2, '0');
-    var formattedDate = `${year}-${month}-${day}`;
-    document.getElementById('install-date').value = formattedDate;
-
     function onLoadUser() {
         let user_list = document.getElementById('user-list');
         user_list.innerHTML = '';
