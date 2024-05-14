@@ -116,7 +116,7 @@
           <td class="text-center">
             <?php
               if($notification['noti_status']) {
-                echo '<a class="btn btn-primary btn-sm btn-rounded">Service</a>';
+                echo '<a href="./service.php?noti-id=' . $notification['noti_id'] . '" class="btn btn-primary btn-sm btn-rounded">Service</a>';
               }else {
                 echo '<a class="btn btn-light btn-sm btn-rounded disabled">Serviced</a>';
               }

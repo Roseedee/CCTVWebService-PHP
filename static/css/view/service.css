@@ -1,0 +1,12 @@
+.my-form {
+    max-width: 1000px;
+}
+
+.my-form .noti-img {
+    height: 280px;
+
+    img {
+        height: 100%;
+        border-radius: 10px;
+    }
+}
