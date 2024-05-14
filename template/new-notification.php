@@ -74,7 +74,9 @@
                 </div>
             </div>
             <div class="my-user-selector" id="user-list"></div>
-            <div class="my-user-selector" id="worksite-list"></div>
+            <div class="my-user-selector" id="worksite-list">
+              <p class="text-center p-0 m-0 mt-2">กรุณาเลือกลูกค้าก่อน</p>
+            </div>
         </div>
         <div class="col mt-3">
           <p class="text-start mb-1">กดพื่อเพิ่มรูป สามารถเพิ่มรูปได้แค่รูปเดียว</p>
@@ -197,23 +199,29 @@
 
         let worksite_list = document.getElementById('worksite-list');
         worksite_list.innerHTML = '';
-
-        worksites.forEach(worksite => {
-            const userItem = document.createElement("a");
-            userItem.href = "./new-notification.php?worksite-id=" + worksite.worksiteId + "&user-id=" + worksite.userId;
-            userItem.classList.add("user-selector-item");
-            userItem.innerHTML = `
-                    <div class="about-user">
-                        <p class="user-id m-0 text-muted">${worksite.worksiteId}</p>
-                        <p class="user-name m-0">${worksite.worksiteName}</p>
-                    </div>
-                    <div class="user-img">
-                        <img src="../static/icon/worksite.png" alt="">
-                    </div>
-                `;
-
-            worksite_list.appendChild(userItem);
-        });
+        
+        if(worksites.length > 0) {
+          worksites.forEach(worksite => {
+              const userItem = document.createElement("a");
+              userItem.href = "./new-notification.php?worksite-id=" + worksite.worksiteId + "&user-id=" + worksite.userId;
+              userItem.classList.add("user-selector-item");
+              userItem.innerHTML = `
+                      <div class="about-user">
+                          <p class="user-id m-0 text-muted">${worksite.worksiteId}</p>
+                          <p class="user-name m-0">${worksite.worksiteName}</p>
+                      </div>
+                      <div class="user-img">
+                          <img src="../static/icon/worksite.png" alt="">
+                      </div>
+                  `;
+  
+              worksite_list.appendChild(userItem);
+          });
+        }else {
+          const emptyText = document.createElement('p');
+          
+          worksite_list.innerHTML = '<p class="text-center p-0 m-0 mt-2">ไม่มีหน้างาน</p>';
+        }
 
         <?php
             }
