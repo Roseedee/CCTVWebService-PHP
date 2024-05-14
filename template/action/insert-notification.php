@@ -56,7 +56,7 @@
         }
     } catch(PDOException $e) {
         echo "insert user failed : " . $e->getMessage();
-        // header('location: ./../new-user.php');
+        header('location: ../new-notification.php');
     }
 
     $con = null;
