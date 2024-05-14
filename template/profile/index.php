@@ -68,6 +68,9 @@
             <li class="nav-item">
               <a class="nav-link" href="./password-manage.php?user-id=<?php echo $user_id; ?>">เปลี่ยนรหัสผ่าน</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./cancel-account.php?user-id=<?php echo $user_id; ?>">ลบบัญชีผู้ใช้</a>
+            </li>
           </ul>
           <button type="submit" class="btn btn-primary" id="submitBtn" style="display: none;">บันทึก</button>
         </div>

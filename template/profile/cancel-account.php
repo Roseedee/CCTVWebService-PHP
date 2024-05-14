@@ -1,6 +1,5 @@
 <?php
   session_start();
-  require_once('./action/load-account.php');
   require_once('action/load-worksites.php');
   $img_type = $_SESSION['user-img-type'];
 ?>
@@ -19,14 +18,14 @@
   <header class="p-3 mb-3 border-bottom">
     <div class="container">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <a href="../" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
+        <a href="./" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
           <img src="../../static/image/logo-sm.png" height="45" alt="">
         </a>
 
         <ul class="nav nav-pills col-12 col-lg-auto me-lg-auto justify-content-center ms-5">
           <li class="nav-item"><a href="../" class="nav-link">หน้าหลัก</a></li>
-          <li class="nav-item"><a href="../new-user.php" class="nav-link">เพิ่มลูกค้าใหม่</a></li>
-          <li class="nav-item"><a href="../new-worksite.php" class="nav-link">เพิ่มหน้างานใหม่</a></li>
+          <li class="nav-item"><a href="../new-user.html" class="nav-link">เพิ่มลูกค้าใหม่</a></li>
+          <li class="nav-item"><a href="../new-worksite.html" class="nav-link">เพิ่มหน้างานใหม่</a></li>
         </ul>
 
         <a href="../notify-services.php" class="btn btn-light me-3 btn-sm">แจ้งเตือน</a>
@@ -47,7 +46,7 @@
 
   <div class="container my-container">
     <h2 class="mt-3 text-center">โปรไฟล์</h2>
-    <form class="about-user mt-3" action="./action/update-account.php?img-type=<?php echo $img_type?>&user-id=<?php echo $user_id;?>" method="POST" enctype="multipart/form-data">
+    <form class="about-user mt-3">
       <div tool class="user-img">
         <img src="../../uploads/user-img/<?php echo $img_type != NULL ? $user_id . "." . $img_type : 'default.png' ; ?>" alt="" id="user-img">
       </div>
@@ -58,39 +57,40 @@
               <a class="nav-link" href="./?user-id=<?php echo $user_id; ?>">ข้อมูลส่วนตัว</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="">ข้อมูลบัญชี</a>
+                <a class="nav-link" href="./account.php?user-id=<?php echo $user_id; ?>">ข้อมูลบัญชี</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="./password-manage.php?user-id=<?php echo $user_id; ?>">เปลี่ยนรหัสผ่าน</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./cancel-account.php?user-id=<?php echo $user_id; ?>">ลบบัญชีผู้ใช้</a>
+              <a class="nav-link active" href="">ลบบัญชีผู้ใช้</a>
             </li>
           </ul>
-          <button type="submit" class="btn btn-primary" id="submitBtn" style="display:none;">บันทึก</button>
         </div>
-        <div class="col mt-2">
-          <span class="text-muted">ไม่สามารถแก้ไขได้</span>
-          <div class="row mt-2">
-            <div class="col input-group mb-3"> 
-              <div class="form-floating">
-                <input type="text" class="form-control disabled" placeholder="ชื่อผู้ใช้" value="<?php echo $acc_info[0]['username'];?>" readonly>
-                <label>ชื่อผู้ใช้</label>
-              </div>
+        <div class="col mt-4">
+            <div class="row">
+                <div class="col input-group mb-3"> 
+                    <div class="form-floating">
+                        <input type="text" class="form-control" placeholder="ชื่อผู้สใช้">
+                        <label>ชื่อผู้สใช้</label>
+                    </div>
+                </div>
+                <div class="col input-group mb-3">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" placeholder="รหัสผ่าน">
+                        <label>รหัสผ่าน</label>
+                    </div>
+                </div>
             </div>
-            <div class="col input-group mb-3">
-              <div class="form-floating">
-                <input type="text" class="form-control" placeholder="รหัสผ่าน"  value="<?php echo $acc_info[0]['password']; ?>" readonly>
-                <label>รหัสผ่าน</label>
-              </div>
-            </div>
-          </div>
+        </div>
+        <div class="col d-flex justify-content-end">           
+            <button type="submit" class="btn btn-danger btn-sm">ลบบัญชีผู้ใช้</button>
         </div>
       </div>
     </form>
     <p style="width: 100%; font-weight: bold; text-align: left;" class="mb-0 pb-1 pt-4">ข้อมูลกล้องวงจรปิด</p>
     <div class="container p-0">
-      <table class="table align-middle mb-0 bg-white">
+    <table class="table align-middle mb-0 bg-white">
         <thead>
           <tr>
             <th>หน้างาน</th>
@@ -152,11 +152,16 @@
   <footer class="pt-3">
     <ul class="nav align-items-center justify-content-center mb-2">
       <img src="../../static/image/logo-sm.png" class="me-3" height="40" alt="">
-      <li class="nav-item">ระบบให้บริการกล้องวงจรปิด</li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Service</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Pricing</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>  
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
     </ul>
     <p class="text-center text-body-secondary">© 2024 YALANETCOM</p>
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+  <script src="../../static/js/profile.js"></script>
 </body>
 </html>
