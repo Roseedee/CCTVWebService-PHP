@@ -7,6 +7,9 @@
 
   require_once('./action/load-notification.php');
 
+  if(!$noti_info['noti_status']) {
+    require_once('./action/load-service.php');
+  }
 ?>
 
 
@@ -95,12 +98,21 @@
         </div>
         <div class="col input-group mb-3 mt-2"> 
           <div class="form-floating">
+            <input type="date" id="date-today" name="service-date" class="form-control" placeholder="วันที่ให้บริการ" <?php echo $noti_info['noti_status'] ? '' : 'disabled'?>>
             <label>วันที่ให้บริการ</label>
           </div>
         </div>
         <div class="col">
+          <textarea name="service-details" class="form-control" rows="5" style="padding: 10px; border-radius: 5px;" placeholder="รายละเอียดที่ช่างให้บริการ" <?php echo $noti_info['noti_status'] ? '' : 'disabled'?>><?php echo $noti_info['noti_status'] ? '' : $service_info['service_details'] ;?></textarea>
         </div>
         <div class="d-grid gap-2 mt-3">
+          <?php
+            if($noti_info['noti_status']) {
+          ?>
+            <button class="btn btn-primary btn-lg" type="submit">บันทึกการให้บริการ</button>
+          <?php
+            }
+          ?>
         </div>
       </form>
     </div>
