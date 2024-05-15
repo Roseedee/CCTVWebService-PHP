@@ -4,6 +4,9 @@
   if(!isset($_SESSION['admin-user-id'])) {
     header('location: ../');
   }
+
+  require_once('./action/load-notification.php');
+
 ?>
 
 
@@ -50,26 +53,42 @@
   <div class="container my-container text-center">
     <h2 class="mt-3">ปัญหาที่ลูกค้าแจ้ง</h2>
     <div class="row mt-2 mb-3 justify-content-center">
+      <form action="./action/insert-service.php?noti-id=<?php echo $noti_info['noti_id']?>" class="my-form p-0" method="POST" enctype="multipart/form-data">
+        <?php
+          if($noti_info['img_name']) {
+        ?>
+          <div class="col mt-3 noti-img">
+              <img src="../uploads/notification-img/<?php echo $noti_info['img_name']?>" alt="">
+          </div>
+        <?php
+          }
+        ?>
+        <div class="col d-flex  mt-3">
+          <span>ข้อมูลเกี่ยวกับลูกค้าที่แจ้ง</span>
         </div>
         <div class="col input-group mt-2" id="user-item">
           <span class="input-group-text"><img src="../static/icon/user.png" width="32"></span>
           <div class="form-floating">
+            <input type="text" class="form-control" id="user-search" placeholder="รหัสประจำตัวลูกค้า" value="<?php echo "(" . $noti_info['user_id'] . ") " . $noti_info['name_lastname']?>" readonly>
             <label for="user-search">รหัสประจำตัวลูกค้า</label>
           </div>
         </div>
         <div class="row mt-3">
           <div class="col input-group mb-3"> 
             <div class="form-floating">
+              <input type="text" class="form-control" placeholder="หน้างาน" readonly value="<?php echo $noti_info['worksite_name'] ?>">
               <label>หน้างาน</label>
             </div>
           </div>
           <div class="col input-group mb-3">
             <div class="form-floating">
+              <input type="datetime" class="form-control" placeholder="วันที่แจ้งปัญหา" readonly value="<?php echo $noti_info['noti_datetime'] ?>">
               <label>วันที่แจ้งปัญหา</label>
             </div>
           </div>
         </div>
         <div class="col">
+          <textarea class="form-control" rows="5" style="padding: 10px; border-radius: 5px;" placeholder="ปัญหาที่ลูกค้าแจ้ง" readonly><?php echo $noti_info['notification'] ?></textarea>
         </div>
         <div class="col d-flex  mt-3">
           <span>ข้อมูลเกี่ยวกับช่าง</span>
@@ -104,6 +123,18 @@
     var month = String(today.getMonth() + 1).padStart(2, '0');
     var day = String(today.getDate()).padStart(2, '0');
     var formattedDate = `${year}-${month}-${day}`;
+    <?php
+      if($noti_info['noti_status']) {
+    ?>
+      document.getElementById('date-today').value = formattedDate;
+    <?php
+      }else {
+    ?>
+      document.getElementById('date-today').value = "<?php echo $service_info['service_datetime']?>";
+    <?php 
+      }
+    ?>
+
   </script>
 </body>
 </html>
