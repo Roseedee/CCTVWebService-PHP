@@ -118,7 +118,7 @@
               if($notification['noti_status']) {
                 echo '<a href="./service.php?noti-id=' . $notification['noti_id'] . '" class="btn btn-primary btn-sm btn-rounded">Service</a>';
               }else {
-                echo '<a class="btn btn-light btn-sm btn-rounded disabled">Serviced</a>';
+                echo '<a href="./service.php?noti-id=' . $notification['noti_id'] . '" class="btn btn-light btn-sm btn-rounded">Serviced</a>';
               }
             ?>
           </td>
