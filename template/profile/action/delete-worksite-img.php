@@ -20,7 +20,7 @@
             }
         }
 
-        header('location: ./../worksite-details.php?worksite-id=' . $worksite_id . '&user-id=' . $user_id);
+        header('location: ./../form-update-worksite.php?worksite-id=' . $worksite_id . '&user-id=' . $user_id);
     } else {
         echo "Failed to delete image.";
     }

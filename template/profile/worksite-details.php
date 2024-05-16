@@ -51,7 +51,7 @@
             <form action="" class="my-form p-0">
                 <div class="d-flex align-items-center justify-content-between">
                     <a href="./?user-id=<?php echo $user_id?>" class="btn btn-primary btn-sm me-1">กลับไปที่หน้าโปรไฟล์</a>
-                    <a href="./form-update-worksite.php?worksite-id=<?php echo $worksite_id?>&user-id=<?php echo $user_id?>" class="btn btn-danger btn-sm me-1">แก้ไขข้อมูล</a>
+                    <a href="./form-update-worksite.php?worksite-id=<?php echo $worksite_id?>&user-id=<?php echo $user_id?>" class="btn btn-warning btn-sm me-1">แก้ไขข้อมูล</a>
                 </div>
                 <div class="col mt-3">
                 <p class="text-start mb-1">รูปหน้างาน</p>
