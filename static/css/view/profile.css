@@ -29,8 +29,9 @@
         }
     }
 
-    & .user-img:hover {
+    & .user-img-hover:hover {
         border: 3px solid #7e76d4;
+        cursor: pointer;
     }
 
     & .user-info {

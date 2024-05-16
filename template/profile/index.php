@@ -53,7 +53,7 @@
     <h2 class="mt-3 text-center">โปรไฟล์</h2>
     <form action="./action/update-user.php?img-type=<?php echo $user_info[0]['img_type'];?>&user-id=<?php echo $user_id ?>" class="about-user mt-3" method="POST" enctype="multipart/form-data">
       <input type="file" name="user-img" id="img-input" style="display: none;">
-      <div tool class="user-img" onclick="document.getElementById('img-input').click()">
+      <div tool class="user-img user-img-hover" onclick="document.getElementById('img-input').click()">
         <img src="../../uploads/user-img/<?php echo $user_info[0]['img_type'] != NULL ? $user_id . "." . $user_info[0]['img_type'] : 'default.png' ; ?>" alt="" id="user-img">
       </div>
       <div class="user-info ps-5">

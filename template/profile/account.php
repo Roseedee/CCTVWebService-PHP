@@ -80,7 +80,7 @@
             </div>
             <div class="col input-group mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" placeholder="รหัสผ่าน"  value="<?php echo $acc_info[0]['password']; ?>" readonly>
+                <input type="password" class="form-control" placeholder="รหัสผ่าน"  value="<?php echo $acc_info[0]['password']; ?>" readonly>
                 <label>รหัสผ่าน</label>
               </div>
             </div>

@@ -84,13 +84,13 @@
           <div class="row">
             <div class="col input-group mb-3"> 
               <div class="form-floating">
-                <input type="text" class="form-control" placeholder="รหัสผ่านใหม่" name="new-password" required>
+                <input type="password" class="form-control" placeholder="รหัสผ่านใหม่" name="new-password" required>
                 <label>รหัสผ่านใหม่</label>
               </div>
             </div>
             <div class="col input-group mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" placeholder="ยืนยันรหัสผ่าน" name="confirm-password" required>
+                <input type="password" class="form-control" placeholder="ยืนยันรหัสผ่าน" name="confirm-password" required>
                 <label>ยืนยันรหัสผ่าน</label>
               </div>
             </div>
