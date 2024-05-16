@@ -7,11 +7,17 @@
 - [x] Notification-List.
 - [x] Add-Customer(account type customer only).
 - [x] Add-Worksite.
-- [ ] Add-Notification.
-- [ ] Add-Service.
+- [x] Add-Notification.
+- [x] Add-Service.
+- [x] Update-user-details.
+- [x] Update-worksite-details.
+- [x] Update-password.
+- [x] Delete-user.
+- [x] Delete-worksite-details.
+- [x] Delete-image-worksite.
 - [x] Customer-profile.
 - [x] Worksite-details.
-- [ ] Services-details.
+- [x] Services-details.
 - [x] Sign-Out.
 
 ## Features
