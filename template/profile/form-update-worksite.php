@@ -47,19 +47,28 @@
 
     <div class="container my-container text-center">
         <div class="row mt-3 mb-3 justify-content-center">
-            <form action="" class="my-form p-0">
+            <form action="./action/update-worksite.php?worksite-id=<?php echo $worksite_id?>&user-id=<?php echo $user_id?>" class="my-form p-0" method="POST" enctype="multipart/form-data">
                 <div class="d-flex align-items-center justify-content-between">
-                    <a href="./?user-id=<?php echo $user_id?>" class="btn btn-primary btn-sm me-1">กลับไปที่หน้าโปรไฟล์</a>
-                    <a href="./form-update-worksite.php?worksite-id=<?php echo $worksite_id?>&user-id=<?php echo $user_id?>" class="btn btn-danger btn-sm me-1">แก้ไขข้อมูล</a>
+                    <a href="./worksite-details.php?worksite-id=<?php echo $worksite_id?>&user-id=<?php echo $user_id?>" class="btn btn-primary btn-sm me-1">ย้อนกลับ</a>
+                    <a href="./action/delete-worksite.php?worksite-id=<?php echo $worksite_id?>&user-id=<?php echo $user_id?>" class="btn btn-danger btn-sm me-1">ลบหน้างาน</a>
                 </div>
                 <div class="col mt-3">
                 <p class="text-start mb-1">รูปหน้างาน</p>
                 <div class="d-flex">
+                    <div class="img-add-btn p-0">
+                    <label for="images-selector-add-worksite" class="file-upload-label">
+                        <img src="../../static/icon/add.png" alt="">
+                    </label>
+                    <input id="images-selector-add-worksite" type="file" accept=".jpg, .jpeg, .png, .pdf" multiple style="display: none;" name="worksite-img[]">
+                    </div>
                     <div class="img-container p-0">
                     <div class="img-list p-0" id="image-list">
                         <?php foreach ($worksite_img_list as $image) { ?>
                             <div class="img-list-item">
                                 <img src="../../uploads/worksite-img/<?php echo $image['img_url']?>" alt="">
+                                <a href="./action/delete-worksite-img.php?image-id=<?php echo $image['img_id']?>&image-name=<?php echo $image['img_url']?>&worksite-id=<?php echo $worksite_id?>&user-id=<?php echo $user_id?>" class="img-btn-delete delete-img">
+                                    <img src="../../static/icon/trash-bin.png" alt="">
+                                </a>
                             </div>
                         <?php } ?>
                     </div>
@@ -70,13 +79,13 @@
                 <div class="row mt-2">
                 <div class="col input-group mb-3"> 
                     <div class="form-floating">
-                    <input type="text" class="form-control" placeholder="ชื่อหน้างาน" name="worksite-name" required value="<?php echo $worksite['worksite_name']?>" disabled>
+                    <input type="text" class="form-control" placeholder="ชื่อหน้างาน" name="worksite-name" required value="<?php echo $worksite['worksite_name']?>">
                     <label>ชื่อหน้างาน</label>
                     </div>
                 </div>
                 <div class="col input-group mb-3">
                     <div class="form-floating">
-                    <input type="text" class="form-control" placeholder="ที่อยู่หน้างาน" name="address" required value="<?php echo $worksite['address']?>"  disabled>
+                    <input type="text" class="form-control" placeholder="ที่อยู่หน้างาน" name="address" required value="<?php echo $worksite['address']?>">
                     <label>ที่อยู่หน้างาน</label>
                     </div>
                 </div>
@@ -84,19 +93,22 @@
                 <div class="row">
                 <div class="col input-group mb-3"> 
                     <div class="form-floating">
-                    <input type="number" class="form-control" placeholder="จำนวนกล้องวงจรปิด" name="camera-number" min="1" value="<?php echo $worksite['camera_number']?>" required  disabled>
+                    <input type="number" class="form-control" placeholder="จำนวนกล้องวงจรปิด" name="camera-number" min="1" value="<?php echo $worksite['camera_number']?>" required>
                     <label>จำนวนกล้องวงจรปิด</label>
                     </div>
                 </div>
                 <div class="col input-group mb-3">
                     <div class="form-floating">
-                    <input type="date" class="form-control" placeholder="วันที่ติดตั้ง" id="install-date" name="install-date" required value="<?php echo $worksite['install_date']?>"  disabled>
+                    <input type="date" class="form-control" placeholder="วันที่ติดตั้ง" id="install-date" name="install-date" required value="<?php echo $worksite['install_date']?>">
                     <label>วันที่ติดตั้ง</label>
                     </div>
                 </div>
                 </div>
                 <div class="col">
-                <textarea name="other-details" id="" class="form-control" rows="5" style="padding: 10px; border-radius: 5px;" placeholder="รายละเอียดเพิ่มเติม" disabled><?php echo $worksite['other_details']?></textarea>
+                <textarea name="other-details" id="" class="form-control" rows="5" style="padding: 10px; border-radius: 5px;" placeholder="รายละเอียดเพิ่มเติม"><?php echo $worksite['other_details']?></textarea>
+                </div>
+                <div class="d-grid gap-2 mt-3">
+                <button class="btn btn-primary btn-lg" type="submit">แก้ไขข้อมูล</button>
                 </div>
             </form>
         </div>
@@ -111,5 +123,6 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <script src="../../static/js/form-update-worksite.js"></script>
 </body>
 </html>
