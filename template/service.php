@@ -58,10 +58,10 @@
     <div class="row mt-2 mb-3 justify-content-center">
       <form action="./action/insert-service.php?noti-id=<?php echo $noti_info['noti_id']?>" class="my-form p-0" method="POST" enctype="multipart/form-data">
         <?php
-          if($noti_info['img_name']) {
+          if($noti_info['img_type']) {
         ?>
           <div class="col mt-3 noti-img">
-              <img src="../uploads/notification-img/<?php echo $noti_info['img_name']?>" alt="">
+              <img src="../uploads/notification-img/<?php echo $noti_info['img_type']?>" alt="">
           </div>
         <?php
           }
