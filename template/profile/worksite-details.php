@@ -2,6 +2,7 @@
     session_start();
     require_once('action/load-worksite.php');
     require_once('action/load-worksite-img.php');
+    require_once('action/load-serviced.php');
     $user_id = $_GET['user-id'];
 ?>
 
@@ -98,6 +99,66 @@
                 <div class="col">
                 <textarea name="other-details" id="" class="form-control" rows="5" style="padding: 10px; border-radius: 5px;" placeholder="รายละเอียดเพิ่มเติม" disabled><?php echo $worksite['other_details']?></textarea>
                 </div>
+                <div class="d-flex mt-4">
+                    <h4>บริการหลังการติดตั้ง</h4>
+                </div>
+                <table class="table align-middle mb-0 bg-white">
+                    <thead>
+                        <tr>
+                            <th class='text-start'>แจ้งปัญหากล้องวงจรปิด</th>
+                            <th class='text-start'>รายละเอียดปัญหา</th>
+                            <th class='text-start'>การให้บริการ</th>
+                            <th>สถานะ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                            foreach($noti_info as $notification) {
+                        ?>
+                        <tr>
+                            <td class="text-start">
+                                <p class="m-0 text-muted" style="font-size: 12px;"><?php echo $notification['noti_id'];?></p>
+                                <p class="fw-bold mb-0">ปัญหากล้องวงจรปิด</p>
+                                <p class="m-0 text-muted" style="font-size: 12px;">วันที่แจ้งปัญหา : <?php echo $notification['noti_datetime']?></p>
+                            </td>
+                            <td class="text-start">
+                                <?php echo $notification['notification'];?>
+                            </td>
+                            <td class="text-start">
+                                <?php
+                                    if(!$notification['noti_status']) {
+                                ?>
+                                    <p class="m-0 text-muted" style="font-size: 12px;">วันที่ให้บริการ : <?php echo $notification['service_datetime'];?></p>
+                                    <?php echo $notification['service_details'];?>
+                                <?php
+                                    }else {
+                                        echo 'ยังไม่มีข้อมูล';
+                                    }
+                                ?>
+                            </td>
+                            
+                            <td class="text-center">
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <?php
+                                        if($notification['noti_status']) {
+                                    ?>
+                                        <div class="me-2" style="width: 5px; height: 5px; border-radius: 50%; background-color: yellow;"></div><a href='../service.php?noti-id=<?php echo $notification['noti_id'];?>' style="color: black;">กำลังดำเนินการ</a>
+                                    <?php
+                                        }else {
+                                    ?>
+                                        <div class="me-2" style="width: 5px; height: 5px; border-radius: 50%; background-color: gray;"></div><a href='../service.php?noti-id=<?php echo $notification['noti_id'];?>' style="color: black;">ดำเนินการแล้ว</a>
+                                    <?php
+                                        }
+                                    ?>
+                                </div>
+                                
+                            </td>
+                        </tr>
+                        <?php
+                            }
+                        ?>
+                    </tbody>
+                </table>
             </form>
         </div>
     </div>
