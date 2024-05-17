@@ -1,6 +1,7 @@
 <?php
   session_start();
   $user_id = $_GET['user-id'];
+  require_once('../action/dbconnect.php');
   require_once('./action/load-account.php');
   require_once('./action/load-worksites.php');
   $_SESSION['current-password'] = $acc_info[0]['password'];

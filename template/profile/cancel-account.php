@@ -1,5 +1,6 @@
 <?php
   session_start();
+  require_once('../action/dbconnect.php');
   require_once('action/load-worksites.php');
   $img_type = $_SESSION['user-img-type'];
 ?>
@@ -46,7 +47,7 @@
 
   <div class="container my-container">
     <h2 class="mt-3 text-center">โปรไฟล์</h2>
-    <form class="about-user mt-3">
+    <form class="about-user mt-3" action="./action/delete-user.php?user-id=<?php echo $user_id ?>" method="POST" enctype="multipart/form-data">
       <div tool class="user-img">
         <img src="../../uploads/user-img/<?php echo $img_type != NULL ? $user_id . "." . $img_type : 'default.png' ; ?>" alt="" id="user-img">
       </div>
@@ -71,13 +72,13 @@
             <div class="row">
                 <div class="col input-group mb-3"> 
                     <div class="form-floating">
-                        <input type="text" class="form-control" placeholder="ชื่อผู้สใช้">
+                        <input type="text" class="form-control" placeholder="ชื่อผู้สใช้" name="username" required>
                         <label>ชื่อผู้สใช้</label>
                     </div>
                 </div>
                 <div class="col input-group mb-3">
                     <div class="form-floating">
-                        <input type="text" class="form-control" placeholder="รหัสผ่าน">
+                        <input type="password" class="form-control" placeholder="รหัสผ่าน" name="password" required>
                         <label>รหัสผ่าน</label>
                     </div>
                 </div>
