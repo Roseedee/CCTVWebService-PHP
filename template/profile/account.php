@@ -1,8 +1,10 @@
 <?php
   session_start();
+  
   require_once('../action/dbconnect.php');
   require_once('./action/load-account.php');
   require_once('action/load-worksites.php');
+
   $img_type = $_SESSION['user-img-type'];
 ?>
 

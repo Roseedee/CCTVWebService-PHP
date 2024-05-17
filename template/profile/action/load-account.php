@@ -1,6 +1,10 @@
 <?php
+    if($_SESSION['user-acc-type'] == 'admin') { //admin
+        $user_id = $_GET['user-id'];
+    }else {
+        $user_id = $_SESSION['user-login-id'];  //customer
+    }
 
-    $user_id = $_GET['user-id'];
     try {
         $stmt = $con->prepare("
             SELECT * from account WHERE account.user_id = " . $user_id . "

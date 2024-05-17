@@ -1,7 +1,12 @@
 <?php
     require_once('../action/dbconnect.php');
 
-    $user_id = $_GET['user-id'];
+    if($_SESSION['user-acc-type'] == 'admin') { //admin
+        $user_id = $_GET['user-id'];
+    }else {
+        $user_id = $_SESSION['user-login-id'];  //customer
+    }
+
     try {
         $stmt = $con->prepare("
             SELECT 
