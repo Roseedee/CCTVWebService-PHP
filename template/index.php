@@ -1,8 +1,10 @@
 <?php
   session_start();
 
-  if(!isset($_SESSION['user-login-id'])) {
+  if(!isset($_SESSION['user-login-id'])) { //check is login
     header('location: ../');
+  }else if($_SESSION['user-acc-type'] != 'admin') { //check is customer
+    header('location: ./profile/?user-id=' . $_SESSION['user-login-id']);
   }
 
   require_once("./action/load-users.php");

@@ -30,7 +30,7 @@
         </ul>
 
         <a href="../notify-services.php" class="btn btn-light me-3 btn-sm">แจ้งเตือน</a>
-        <?php echo $_SESSION['user-name-login'] ?>
+        <?php echo $_SESSION['admin-user-name'] ?>
         <div class="dropdown text-end ms-3 ">
           <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
             <img src="../../uploads/user-img/<?php echo isset($_SESSION['user-image-login']) ? $_SESSION['user-image-login'] : "default.png" ; ?>" alt="mdo" width="32" height="32" class="rounded-circle">

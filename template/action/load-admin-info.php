@@ -21,7 +21,7 @@
         $admin = $stmt->fetchAll(PDO::FETCH_ASSOC)[0];
 
         $_SESSION['user-image-login'] = $admin['user_id'] . "." . $admin['img_type'];
-        $_SESSION['user-name-login'] = $admin['name_lastname'];
+        $_SESSION['admin-user-name'] = $admin['name_lastname'];
 
     } catch(PDOException $e) {
         echo "Connection failed: " . $e->getMessage();
