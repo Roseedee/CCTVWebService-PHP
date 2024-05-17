@@ -35,7 +35,7 @@
           ?>
         </ul>
 
-        <a href="../notify-services.php" class="btn btn-light me-3 btn-sm">แจ้งเตือน</a>
+        <a href="../notify-services.php" class="btn btn-light me-3 btn-sm"><?php echo $_SESSION['user-acc-type'] == 'admin' ? 'แจ้งเตือน' : 'แจ้งปัญหา' ?></a>
         <?php echo $_SESSION['admin-user-name'] ?>
         <div class="dropdown text-end ms-3 ">
           <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">

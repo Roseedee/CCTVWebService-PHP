@@ -37,7 +37,7 @@
           ?>
         </ul>
 
-        <a href="./notify-services.php" class="btn btn-light me-3 btn-sm">แจ้งเตือน</a>
+        <a href="./notify-services.php" class="btn btn-light me-3 btn-sm"><?php echo $_SESSION['user-acc-type'] == 'admin' ? 'แจ้งเตือน' : 'แจ้งปัญหา' ?></a>
         <?php echo $_SESSION['admin-user-name'] ?>
         <div class="dropdown text-end ms-3 ">
           <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
@@ -56,7 +56,7 @@
   <div class="container my-container">
     <div class="d-flex justify-content-between py-2">
       <div class="d-flex align-items-center">
-        <a href="./new-notification.php" class="btn btn-primary btn-sm">เพิ่ม</a>
+        <a href="./new-notification.php" class="btn btn-primary btn-sm">แจ้งปัญหาเพิ่ม</a>
       </div>
       <form class="d-flex">
         <input type="text" class="form-control me-2" placeholder="ค้นหา" aria-label="Username" aria-describedby="basic-addon1">
@@ -121,10 +121,18 @@
           </td>
           <td class="text-center">
             <?php
-              if($notification['noti_status']) {
-                echo '<a href="./service.php?noti-id=' . $notification['noti_id'] . '" class="btn btn-primary btn-sm btn-rounded">Service</a>';
+              if($_SESSION['user-acc-type'] == 'admin') {
+                if($notification['noti_status']) {
+                  echo '<a href="./service.php?noti-id=' . $notification['noti_id'] . '" class="btn btn-primary btn-sm btn-rounded">Service</a>';
+                }else {
+                  echo '<a href="./service.php?noti-id=' . $notification['noti_id'] . '" class="btn btn-light btn-sm btn-rounded">Serviced</a>';
+                }
               }else {
-                echo '<a href="./service.php?noti-id=' . $notification['noti_id'] . '" class="btn btn-light btn-sm btn-rounded">Serviced</a>';
+                if($notification['noti_status']) {
+                  echo '<div class="d-flex align-items-center justify-content-center"><div class="me-2" style="width: 5px; height: 5px; border-radius: 50%; background-color: yellow;"></div><a href="service.php?noti-id=' . $notification['noti_id'] . '" style="color: black;">กำลังดำเนินการ</a></div>';
+                }else {
+                  echo '<div class="d-flex align-items-center justify-content-center"><div class="me-2" style="width: 5px; height: 5px; border-radius: 50%; background-color: gray;"></div><a href="service.php?noti-id=' . $notification['noti_id'] . '" style="color: black;">ดำเนินการแล้ว</a></div>';
+                }
               }
             ?>
           </td>

@@ -43,7 +43,7 @@
           ?>
         </ul>
 
-        <a href="./notify-services.php" class="btn btn-light me-3 btn-sm">แจ้งเตือน</a>
+        <a href="./notify-services.php" class="btn btn-light me-3 btn-sm"><?php echo $_SESSION['user-acc-type'] == 'admin' ? 'แจ้งเตือน' : 'แจ้งปัญหา' ?></a>
         <?php echo $_SESSION['admin-user-name'] ?>
         <div class="dropdown text-end ms-3 ">
           <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
@@ -99,6 +99,9 @@
         <div class="col">
           <textarea class="form-control" rows="5" style="padding: 10px; border-radius: 5px;" placeholder="ปัญหาที่ลูกค้าแจ้ง" readonly><?php echo $noti_info['notification'] ?></textarea>
         </div>
+        <?php
+          if($_SESSION['user-acc-type'] == 'admin') {
+        ?>
         <div class="col d-flex  mt-3">
           <span>ข้อมูลเกี่ยวกับช่าง</span>
         </div>
@@ -120,6 +123,9 @@
             }
           ?>
         </div>
+        <?php
+          }
+        ?>
       </form>
     </div>
   </div>
