@@ -1,7 +1,7 @@
 <?php
   session_start();
 
-  if(!isset($_SESSION['admin-user-id'])) {
+  if(!isset($_SESSION['user-login-id'])) {
     header('location: ../');
   }
 
@@ -39,7 +39,7 @@
             <img src="../uploads/user-img/<?php echo $admin['img_type'] ? $admin['user_id'] . "." . $admin['img_type'] : "default.png" ; ?>" alt="mdo" width="32" height="32" class="rounded-circle">
           </a>
           <ul class="dropdown-menu text-small">
-            <li><a class="dropdown-item" href="./profile/?user-id=<?php echo $_SESSION['admin-user-id']?>">Profile</a></li>
+            <li><a class="dropdown-item" href="./profile/?user-id=<?php echo $_SESSION['user-login-id']?>">Profile</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="signout.php">Sign out</a></li>
           </ul>

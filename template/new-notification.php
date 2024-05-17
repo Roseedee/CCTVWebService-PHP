@@ -1,7 +1,7 @@
 <?php
   session_start();
   
-  if(!isset($_SESSION['admin-user-id'])) {
+  if(!isset($_SESSION['user-login-id'])) {
     header('location: ../');
   }
 
@@ -39,13 +39,13 @@
         </ul>
 
         <a href="./notify-services.php" class="btn btn-light me-3 btn-sm">แจ้งเตือน</a>
-        <?php echo $_SESSION['admin-user-name'] ?>
+        <?php echo $_SESSION['user-name-login'] ?>
         <div class="dropdown text-end ms-3 ">
           <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="../uploads/user-img/<?php echo isset($_SESSION['admin-user-image']) ? $_SESSION['admin-user-image'] : "default.png" ; ?>" alt="mdo" width="32" height="32" class="rounded-circle">
+            <img src="../uploads/user-img/<?php echo isset($_SESSION['user-image-login']) ? $_SESSION['user-image-login'] : "default.png" ; ?>" alt="mdo" width="32" height="32" class="rounded-circle">
           </a>
           <ul class="dropdown-menu text-small">
-            <li><a class="dropdown-item" href="./profile/?user-id=<?php echo $_SESSION['admin-user-id']?>">Profile</a></li>
+            <li><a class="dropdown-item" href="./profile/?user-id=<?php echo $_SESSION['user-login-id']?>">Profile</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="signout.php">Sign out</a></li>
           </ul>
