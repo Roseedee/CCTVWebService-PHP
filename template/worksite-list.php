@@ -98,8 +98,16 @@
             <?php echo $worksite['camera_number']?>
           </td>
           <td class="text-center">
-            <span><?php echo $worksite['num_services'] ?></span><br>
-            <i class="text-muted" style="font-size: 14px;">ล่าสุด <?php echo $worksite['latest_service_date'] ?></i>
+            <?php
+              if($worksite['num_services'] != '0') {
+            ?>
+              <span><?php echo $worksite['num_services'] ?></span><br>
+              <i class="text-muted" style="font-size: 14px;">ล่าสุด <?php echo $worksite['latest_service_date'] ?></i>
+            <?php
+              }else {
+                echo 'ยังไม่มีข้อมูล';
+              }
+            ?>
           </td>
           <td class="text-center">
             <div class="d-flex align-items-center justify-content-center">

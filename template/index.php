@@ -97,8 +97,16 @@
               <span><?php echo $customer['num_worksites'] ?></span>
             </td>
             <td class="text-center">
-              <span><?php echo $customer['num_services'] ?></span><br>
-              <i class="text-muted" style="font-size: 14px;">ล่าสุด <?php echo $customer['latest_service_date'] ?></i>
+              <?php
+                if($customer['num_services'] != '0') {
+              ?>
+                <span><?php echo $customer['num_services'] ?></span><br>
+                <i class="text-muted" style="font-size: 14px;">ล่าสุด <?php echo $customer['latest_service_date'] ?></i>
+              <?php
+                }else {
+                  echo 'ยังไม่มีข้อมูล';
+                }
+              ?>
             </td>
             <td class="text-center">
               <a class="btn btn-primary btn-sm btn-rounded" href="./new-worksite.php?user-id=<?php echo $customer['user_id'] ?>">เพิ่มหน้างาน</a>
