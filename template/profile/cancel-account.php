@@ -69,20 +69,23 @@
           </ul>
         </div>
         <div class="col mt-4">
-            <div class="row">
-                <div class="col input-group mb-3"> 
-                    <div class="form-floating">
-                        <input type="text" class="form-control" placeholder="ชื่อผู้สใช้" name="username" required>
-                        <label>ชื่อผู้สใช้</label>
-                    </div>
-                </div>
-                <div class="col input-group mb-3">
-                    <div class="form-floating">
-                        <input type="password" class="form-control" placeholder="รหัสผ่าน" name="password" required>
-                        <label>รหัสผ่าน</label>
-                    </div>
-                </div>
-            </div>
+          <div class="row">
+              <div class="col input-group mb-1"> 
+                  <div class="form-floating">
+                      <input type="text" class="form-control" placeholder="ชื่อผู้ใช้" name="username" required>
+                      <label>ชื่อผู้ใช้</label>
+                  </div>
+              </div>
+              <div class="col input-group mb-1">
+                  <div class="form-floating">
+                      <input type="password" class="form-control" placeholder="รหัสผ่าน" name="password" required>
+                      <label>รหัสผ่าน</label>
+                  </div>
+              </div>
+          </div>
+          <?php
+            echo isset($_GET['error-msg']) ? '<span class="text-muted">' . $_GET['error-msg'] . '</span>' : '';
+          ?>
         </div>
         <div class="col d-flex justify-content-end">           
             <button type="submit" class="btn btn-danger btn-sm">ลบบัญชีผู้ใช้</button>
