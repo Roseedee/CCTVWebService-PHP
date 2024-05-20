@@ -5,12 +5,13 @@
     header('location: ../');
   }
 
-  require_once('action/load-user.php');
+  if($_SESSION['user-acc-type'] == 'admin') {
+    require_once('action/load-user.php');
+  }
   
   if(isset($_GET['user-id'])) {
     require_once('action/load-worksite.php');
   }
-  
 ?>
 
 
@@ -65,7 +66,7 @@
     <div class="row mt-4 mb-3 justify-content-center">
       <form action="./action/insert-notification.php" class="my-form p-0" method="POST" enctype="multipart/form-data">
         <div class="row" id="my-dropdown">
-            <div class="col input-group">
+            <div class="col input-group" style='<?php echo $_SESSION['user-acc-type'] != 'admin' ? 'display: none;' : ''; ?>'>
               <span class="input-group-text"><img src="../static/icon/user.png" width="32"></span>
               <div class="form-floating">
                 <input type="text" class="form-control" id="user-search" placeholder="เลือกลูกค้า" value="<?php echo isset($_GET['user-id']) ? $_GET['user-id'] : "" ?>" name="user-id" required>
@@ -101,7 +102,7 @@
         </div>
         <div id="show-all-img-name" class="mt-1"></div>
         <div class="col mt-2">
-          <textarea name="notification-details" id="" class="form-control" rows="5" style="padding: 10px; border-radius: 5px;" placeholder="แจ้งรายละเอียดปัญหา"></textarea>
+          <textarea name="notification-details" id="" class="form-control" rows="5" style="padding: 10px; border-radius: 5px;" placeholder="แจ้งรายละเอียดปัญหา" required></textarea>
         </div>
         <div class="d-grid gap-2 mt-3">
           <button class="btn btn-primary btn-lg" type="submit">แจ้งปัญหา</button>
@@ -122,6 +123,9 @@
   <script src="../static/js/new-notification.js"></script>
   <script>
     function onLoadUser() {
+        <?php
+          if(!isset($_GET['user-id']) || $_SESSION['user-acc-type'] == 'admin') {
+        ?>
         let user_list = document.getElementById('user-list');
         user_list.innerHTML = '';
 
@@ -169,8 +173,9 @@
         });
 
         <?php
-            if(isset($_GET['user-id'])) {
-                echo "1";
+            }
+            
+            if(isset($_GET['user-id'])){
         ?>
 
         var worksites = [

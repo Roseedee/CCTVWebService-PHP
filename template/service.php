@@ -75,6 +75,9 @@
         <div class="col d-flex  mt-3">
           <span>ข้อมูลเกี่ยวกับลูกค้าที่แจ้ง</span>
         </div>
+        <?php
+          if($_SESSION['user-acc-type'] == 'admin') {
+        ?>
         <div class="col input-group mt-2" id="user-item">
           <span class="input-group-text"><img src="../static/icon/user.png" width="32"></span>
           <div class="form-floating">
@@ -82,6 +85,9 @@
             <label for="user-search">รหัสประจำตัวลูกค้า</label>
           </div>
         </div>
+        <?php
+          }
+        ?>
         <div class="row mt-3">
           <div class="col input-group mb-3"> 
             <div class="form-floating">

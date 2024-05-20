@@ -56,7 +56,7 @@
   <div class="container my-container">
     <div class="d-flex justify-content-between py-2">
       <div class="d-flex align-items-center">
-        <a href="./new-notification.php" class="btn btn-primary btn-sm">แจ้งปัญหาเพิ่ม</a>
+        <a href="./new-notification.php<?php echo $_SESSION['user-acc-type'] != 'admin' ? '?user-id=' . $_SESSION['user-login-id'] : ''; ?>" class="btn btn-primary btn-sm">แจ้งปัญหาเพิ่ม</a>
       </div>
       <form class="d-flex">
         <input type="text" class="form-control me-2" placeholder="ค้นหา" aria-label="Username" aria-describedby="basic-addon1">
