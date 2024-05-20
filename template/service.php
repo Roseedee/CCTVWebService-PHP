@@ -100,7 +100,7 @@
           <textarea class="form-control" rows="5" style="padding: 10px; border-radius: 5px;" placeholder="ปัญหาที่ลูกค้าแจ้ง" readonly><?php echo $noti_info['notification'] ?></textarea>
         </div>
         <?php
-          if($_SESSION['user-acc-type'] == 'admin') {
+          if(($_SESSION['user-acc-type'] != 'admin' && !$noti_info['noti_status']) || $_SESSION['user-acc-type'] == 'admin') {
         ?>
         <div class="col d-flex  mt-3">
           <span>ข้อมูลเกี่ยวกับช่าง</span>
@@ -114,18 +114,20 @@
         <div class="col">
           <textarea name="service-details" class="form-control" rows="5" style="padding: 10px; border-radius: 5px;" placeholder="รายละเอียดที่ช่างให้บริการ" <?php echo $noti_info['noti_status'] ? '' : 'disabled'?>><?php echo $noti_info['noti_status'] ? '' : $service_info['service_details'] ;?></textarea>
         </div>
-        <div class="d-grid gap-2 mt-3">
-          <?php
-            if($noti_info['noti_status']) {
-          ?>
-            <button class="btn btn-primary btn-lg" type="submit">บันทึกการให้บริการ</button>
-          <?php
-            }
-          ?>
-        </div>
         <?php
           }
         ?>
+        <div class="d-grid gap-2 mt-3">
+            <?php
+              if($noti_info['noti_status']) {
+                if($_SESSION['user-acc-type'] == 'admin') {
+            ?>
+            <button class="btn btn-primary btn-lg" type="submit">บันทึกการให้บริการ</button>
+            <?php
+                }
+              }
+            ?>
+        </div>
       </form>
     </div>
   </div>
