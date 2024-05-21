@@ -5,7 +5,11 @@
     header('location: ../');
   }
   
-  require_once("./action/load-notifications.php");
+  if(isset($_GET['kw-search'])) {
+    require_once("./action/load-notifications-search.php");
+  }else {
+    require_once("./action/load-notifications.php");
+  }
 ?>
 
 <!DOCTYPE html>
@@ -58,8 +62,8 @@
       <div class="d-flex align-items-center">
         <a href="./new-notification.php<?php echo $_SESSION['user-acc-type'] != 'admin' ? '?user-id=' . $_SESSION['user-login-id'] : ''; ?>" class="btn btn-primary btn-sm">แจ้งปัญหาเพิ่ม</a>
       </div>
-      <form class="d-flex">
-        <input type="text" class="form-control me-2" placeholder="ค้นหา" aria-label="Username" aria-describedby="basic-addon1">
+      <form class="d-flex" action="./notify-services.php" method="GET">
+        <input type="text" class="form-control me-2" placeholder="ค้นหา" aria-describedby="basic-addon1" name="kw-search" value="<?php echo isset($_GET['kw-search']) ? $_GET['kw-search'] : ''; ?>">
         <button class="btn btn-outline-secondary" type="submit">ค้นหา</button>
       </form>
     </div>
