@@ -62,7 +62,7 @@
         <a href="./worksite-list.php" class="btn btn-light btn-sm">หน้างาน</a>
       </div>
       <form class="d-flex" action="./" method="GET">
-        <input type="text" class="form-control me-2" placeholder="ค้นหา" aria-describedby="basic-addon1" name="kw-search">
+        <input type="text" class="form-control me-2" placeholder="ค้นหา" aria-describedby="basic-addon1" name="kw-search" value="<?php echo isset($_GET['kw-search']) ? $_GET['kw-search'] : ''; ?>">
         <button class="btn btn-outline-secondary" type="submit">ค้นหา</button>
       </form>
     </div>
