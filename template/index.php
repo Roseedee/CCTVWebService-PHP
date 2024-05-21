@@ -7,7 +7,12 @@
     header('location: ./profile/?user-id=' . $_SESSION['user-login-id']);
   }
 
-  require_once("./action/load-users.php");
+  if(isset($_GET['kw-search'])) {
+    require_once("./action/load-users-search.php");
+  }else {
+    require_once("./action/load-users.php");
+  }
+
   require_once("./action/load-admin-info.php");
 ?>
 
@@ -56,8 +61,8 @@
         <a href="./" class="btn btn-primary btn-sm me-1">ลูกค้า</a>
         <a href="./worksite-list.php" class="btn btn-light btn-sm">หน้างาน</a>
       </div>
-      <form class="d-flex">
-        <input type="text" class="form-control me-2" placeholder="ค้นหา" aria-label="Username" aria-describedby="basic-addon1">
+      <form class="d-flex" action="./" method="GET">
+        <input type="text" class="form-control me-2" placeholder="ค้นหา" aria-describedby="basic-addon1" name="kw-search">
         <button class="btn btn-outline-secondary" type="submit">ค้นหา</button>
       </form>
     </div>
