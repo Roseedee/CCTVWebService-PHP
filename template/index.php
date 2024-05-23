@@ -1,15 +1,15 @@
 <?php
   session_start();
 
-  if(!isset($_SESSION['user-login-id'])) { //check is login
-    header('location: ../');
-  }else if($_SESSION['user-acc-type'] != 'admin') { //check is customer
-    header('location: ./profile/?user-id=' . $_SESSION['user-login-id']);
+  if(!isset($_SESSION['user-login-id'])) { //ถ้าไม่ล็อกอิน ก็จะกลับมาที่หน้าล็อกอิน
+    header('location: ../'); //หน้าล็อกอิน
+  }else if($_SESSION['user-acc-type'] != 'admin') { //ป้องกันบัญชีแบบลูกค้าเข้ามา
+    header('location: ./profile/?user-id=' . $_SESSION['user-login-id']); //หน้าโปรไฟล์ลูกค้า
   }
 
-  if(isset($_GET['kw-search'])) {
-    require_once("./action/load-users-search.php");
-  }else {
+  if(isset($_GET['kw-search'])) { //ค้นหาอยู่หรือไม่
+    require_once("./action/load-users-search.php"); 
+  }else { //กรณีที่ไม่มี kw-search ในลิงค์
     require_once("./action/load-users.php");
   }
 
