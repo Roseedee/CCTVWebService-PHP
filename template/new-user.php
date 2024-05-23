@@ -6,6 +6,12 @@
   }else if($_SESSION['user-acc-type'] != 'admin') { //check is customer
     header('location: ./profile/?user-id=' . $_SESSION['user-login-id']);
   }
+
+  if(isset($_GET['insert-error'])) {
+    if($_GET['insert-error'] == 1) {
+      echo "<script>alert('ชื่อผู้ใช้นี้ถูกใช้งานแล้ว กรุณาตั้งชื่อผู้ใช้ใหม่')</script>";
+    }
+  }
   
 ?>
 
@@ -64,13 +70,13 @@
           <div class="row">
             <div class="col input-group mb-3"> 
               <div class="form-floating">
-                <input type="text" class="form-control" placeholder="ชื่อ-นามสกุล" name="name-lastname">
+                <input type="text" class="form-control" placeholder="ชื่อ-นามสกุล" name="name-lastname" value="<?php echo isset($_SESSION['name-lastname-temp']) ? $_SESSION['name-lastname-temp'] : '';?>">
                 <label>ชื่อ-นามสกุล</label>
               </div>
             </div>
             <div class="col input-group mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" placeholder="เบอร์โทร" name="phone">
+                <input type="text" class="form-control" placeholder="เบอร์โทร" name="phone" value="<?php echo isset($_SESSION['phone-temp']) ? $_SESSION['phone-temp'] : '';?>">
                 <label>เบอร์โทร</label>
               </div>
             </div>
@@ -78,13 +84,13 @@
           <div class="row">
             <div class="col input-group mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" placeholder="อีเมล์" name="email">
+                <input type="text" class="form-control" placeholder="อีเมล์" name="email" value="<?php echo isset($_SESSION['email-temp']) ? $_SESSION['email-temp'] : '';?>">
                 <label>อีเมล์</label>
               </div>
             </div>
             <div class="col input-group mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" placeholder="ที่อยู่" name="address">
+                <input type="text" class="form-control" placeholder="ที่อยู่" name="address" value="<?php echo isset($_SESSION['address-temp']) ? $_SESSION['address-temp'] : '';?>">
                 <label>ที่อยู่</label>
               </div>
             </div>
