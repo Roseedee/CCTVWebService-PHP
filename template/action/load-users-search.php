@@ -24,6 +24,7 @@
             a.account_type = 'customer'
             AND (
                 u.name_lastname LIKE CONCAT('%', '" . $kw_search . "', '%')
+                OR u.phone LIKE CONCAT('%', '" . $kw_search . "', '%')
                 OR u.address LIKE CONCAT('%', '" . $kw_search . "', '%')
             )
         GROUP BY 
