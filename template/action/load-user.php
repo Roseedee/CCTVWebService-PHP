@@ -3,7 +3,7 @@
 
     try {
         $stmt = $con->prepare("
-            SELECT * FROM user;
+            SELECT u.* FROM user u LEFT JOIN account a ON a.user_id=u.user_id WHERE a.account_type='customer';
         ");
         $stmt->execute();
     
