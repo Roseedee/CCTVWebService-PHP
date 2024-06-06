@@ -27,11 +27,12 @@
             $_SESSION['user-login-id'] = $user['user_id'];
             $_SESSION['user-acc-type'] = $user['account_type'];
 
+            require_once('load-admin-info.php');
+            
             //เช็คว่าเป็น admin หรือไม่
             if($user['account_type'] == 'admin') {
                 header("location: ../");
             }else {
-                require_once('load-admin-info.php');
                 header('location: ../profile/?user-id=' . $user['user_id']);
             }
 
