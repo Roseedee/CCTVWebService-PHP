@@ -57,7 +57,7 @@
     <div class="d-flex justify-content-between py-2">
       <div class="d-flex align-items-center">
         <a href="./" class="btn btn-light btn-sm me-1">ลูกค้า</a>
-        <a href="./worksite-.php" class="btn btn-primary btn-sm">หน้างาน</a>
+        <a href="" class="btn btn-primary btn-sm">หน้างาน</a>
       </div>
       <form class="d-flex" action="./worksite-list.php" method="GET">
         <input type="text" class="form-control me-2" placeholder="ค้นหา" aria-describedby="basic-addon1" name="kw-search" value="<?php echo isset($_GET['kw-search']) ? $_GET['kw-search'] : ''; ?>">
